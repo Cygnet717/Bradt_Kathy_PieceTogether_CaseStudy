@@ -13,7 +13,7 @@ import java.util.List;
 
 @Configuration
 public class UserConfig {
-/*
+
     @Bean
     CommandLineRunner commandLineRunner(UserRepository repository){
         return args -> {
@@ -60,6 +60,6 @@ public class UserConfig {
             repository.saveAll(List.of(kathy, ben));
         };
     }
-*/
+
 
 }

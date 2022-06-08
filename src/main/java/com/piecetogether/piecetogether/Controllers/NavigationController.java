@@ -18,32 +18,9 @@ public class NavigationController {
         return "index";
     }
 
-//    @GetMapping("/login")
-//    public String getLoginPage(){
-//        return "loginPage";
-//    }
-//
-//    @GetMapping("/register")
-//    public String getRegisterPage(Model model){
-//        model.addAttribute("user", new User());
-//        return "registerPage";
-//    }
-
-//    @PostMapping("/process_register")
-//    public String processRegistration(User user){
-//        userRepo.save(user);
-//
-//        return "bulkAdd";
-//    }
-
     @GetMapping("/user")
     public String getUserPage(){
 
         return "userPage";
-    }
-
-    @GetMapping("/list_users")
-    public String viewUsersList(){
-        return "listUsers";
     }
 }

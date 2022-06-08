@@ -18,12 +18,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-//    //@GetMapping
-//    public List<User> getUser(){
-//        return userService.getUser();
-//    }
-
-
     @RequestMapping(value={"/login"}, method = RequestMethod.GET)
     public ModelAndView login(){
         ModelAndView modelAndView = new ModelAndView();
@@ -42,8 +36,10 @@ public class UserController {
 
     @RequestMapping(value="/registration", method = RequestMethod.POST)
     public ModelAndView createNewUser(User user, BindingResult bindingResult) {
+        System.out.println("---------------");
         ModelAndView modelAndView = new ModelAndView();
         User userExists = userService.findUserByEmail(user.getEmail());
+
         if (userExists != null) {
             bindingResult
                     .rejectValue("Email", "error.user",
@@ -60,8 +56,5 @@ public class UserController {
         }
         return modelAndView;
     }
-
-
-
 
 }
