@@ -1,8 +1,8 @@
 package com.piecetogether.piecetogether;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import com.piecetogether.piecetogether.UserPackage.User;
-import com.piecetogether.piecetogether.UserPackage.UserRepository;
+import com.piecetogether.piecetogether.model.User;
+import com.piecetogether.piecetogether.Repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;

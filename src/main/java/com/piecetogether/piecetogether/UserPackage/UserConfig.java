@@ -1,12 +1,9 @@
 package com.piecetogether.piecetogether.UserPackage;
 
-import com.piecetogether.piecetogether.BodyModPackage.BodyModification;
-import com.piecetogether.piecetogether.FamilyPackage.Family;
-import com.piecetogether.piecetogether.JobsPackage.Jobs;
-import com.piecetogether.piecetogether.OtherPackage.Other;
-import com.piecetogether.piecetogether.PetsPackage.Pets;
-import com.piecetogether.piecetogether.SchoolPackage.School;
-import com.piecetogether.piecetogether.VacationPackage.Vacation;
+import com.piecetogether.piecetogether.Repository.UserRepository;
+import com.piecetogether.piecetogether.Service.BodyModification;
+import com.piecetogether.piecetogether.model.*;
+import com.piecetogether.piecetogether.model.Vacation;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +13,7 @@ import java.util.List;
 
 @Configuration
 public class UserConfig {
-
+/*
     @Bean
     CommandLineRunner commandLineRunner(UserRepository repository){
         return args -> {
@@ -63,6 +60,6 @@ public class UserConfig {
             repository.saveAll(List.of(kathy, ben));
         };
     }
-
+*/
 
 }
