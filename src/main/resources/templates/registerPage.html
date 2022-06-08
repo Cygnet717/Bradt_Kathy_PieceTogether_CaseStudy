@@ -15,7 +15,7 @@
 <img id="background" src="img/pexels-pixabay-268819.jpg" alt="...">
 <div class="container">
     <h3>Register</h3>
-    <form th:action="@{/registration}" method="POST" th:object="${user}">
+    <form action="#" th:action="@{/registration}" method="post" th:object="${user}">
         <div class="mb-3">
             <label for="InputFName" class="form-label">First Name</label>
             <input type="text" style="border: 1px solid #589EA6" class="form-control" id="InputFName" aria-describedby="inputFirstName" th:field="*{firstName}" required>
@@ -40,7 +40,7 @@
             <label for="ConfPassword" class="form-label">Confirm Password</label>
             <input type="password" style="border: 1px solid #589EA6" class="form-control" id="ConfPassword" required>
         </div>
-        <button id="formButton" type="submit" class="btn btn-primary" >Register</button>
+        <button id="formButton" type="submit" class="btn btn-primary">Register</button>
     </form>
 </div>
 
