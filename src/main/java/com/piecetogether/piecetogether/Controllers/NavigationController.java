@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class NavigationController {
-    @Autowired
-    private UserRepository userRepo;
-
-    @GetMapping({"/home", "/"})
-    public String getHomePage(){
-        return "index";
-    }
-
-    @GetMapping("/user")
-    public String getUserPage(){
-
-        return "userPage";
-    }
+//    @Autowired
+//    private UserRepository userRepo;
+//
+//    @GetMapping({"/home", "/"})
+//    public String getHomePage(){
+//        return "index";
+//    }
+//
+//    @GetMapping("/user")
+//    public String getUserPage(){
+//
+//        return "userPage";
+//    }
 }
