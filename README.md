@@ -41,3 +41,7 @@ Use Tomcat as the webserver
 - Packages should include the name of your project and your name (e.g., “org.johndoe.myprojectname”)
 - Each class should include comments to describe the class and the methods (see Java - JavaDoc discussion topic in Canvas)
 - Have the project hosted on GitHub with a “readme” file documenting user stories and technical challenges along with how they were resolved.
+
+
+# Future
+- use other to make custom categories

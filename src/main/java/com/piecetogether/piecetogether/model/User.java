@@ -1,8 +1,5 @@
 package com.piecetogether.piecetogether.model;
 
-import com.piecetogether.piecetogether.Service.BodyModification;
-
-import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
 
@@ -25,8 +22,6 @@ public class User {
     private Boolean active;
 
     private String role;
-    @OneToMany(targetEntity= BodyModification.class, cascade = {CascadeType.ALL})
-    private List<BodyModification> BodyModList;
 
     @OneToMany(targetEntity= Family.class, cascade = {CascadeType.ALL})
     private List<Family> FamilyList;
@@ -56,14 +51,6 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-    }
-
-    public List<BodyModification> getBodyModList() {
-        return BodyModList;
-    }
-
-    public void setBodyModList(List<BodyModification> BodyModList) {
-        this.BodyModList = BodyModList;
     }
 
     public List<Family> getFamilyList() {

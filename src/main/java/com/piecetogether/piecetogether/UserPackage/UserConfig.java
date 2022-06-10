@@ -1,7 +1,6 @@
 package com.piecetogether.piecetogether.UserPackage;
 
 import com.piecetogether.piecetogether.Repository.UserRepository;
-import com.piecetogether.piecetogether.Service.BodyModification;
 import com.piecetogether.piecetogether.model.*;
 import com.piecetogether.piecetogether.model.Vacation;
 import org.springframework.boot.CommandLineRunner;
@@ -19,9 +18,6 @@ public class UserConfig {
         return args -> {
             Vacation v1 = new Vacation("Ireland", "saw lots of castles", LocalDate.parse("2010-04-04"), LocalDate.parse("2010-04-04"));
             Vacation v2 = new Vacation("Costa Rica", "saw a sling shot spider", LocalDate.parse("2010-04-04"), LocalDate.parse("2010-04-04"));
-
-            BodyModification b1 = new BodyModification("Spider webs with bat and 2 spiders", "ping was the artist, completed over 2 sessions", LocalDate.parse("2010-04-04"), 825.00, "Dekalb Tattoo Company");
-            BodyModification b2 = new BodyModification("ears pierced", "it hurt", LocalDate.parse("2010-04-04"),  20.00, "Clares");
 
             Family f1 = new Family("Baby Nya born", "8lb 0oz, 40w 0d, born at 1am", LocalDate.parse("2010-04-04"), LocalDate.parse("2010-04-04"));
             Family f2 = new Family("Baby Edwin born", "7lb 14oz, 38w 1d, born at 830am", LocalDate.parse("2010-04-04"), null);
@@ -42,7 +38,6 @@ public class UserConfig {
             User ben = new User("Ben", "Bangen", "bangenben@email.com", "Killenit69");
 
             List<Vacation> vacationList = List.of(v1, v2);
-            List<BodyModification> bodyModList = List.of(b1, b2);
             List<Family> familyList = List.of(f1, f2);
             List<School> schoolList = List.of(s1, s2);
             List<Jobs> jobList = List.of(j1, j2);
@@ -50,7 +45,6 @@ public class UserConfig {
             List<Other> otherList = List.of(o1, o2);
 
             kathy.setVacationList(vacationList);
-            kathy.setBodyModList(bodyModList);
             kathy.setFamilyList(familyList);
             kathy.setJobsList(jobList);
             kathy.setPetsList(petList);

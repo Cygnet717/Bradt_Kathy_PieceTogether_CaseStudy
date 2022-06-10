@@ -88,23 +88,37 @@ function addTableToAccordItem(year){
 
     for(let j=0; j<eventData[year].length; j++){
         let obj = eventData[year][j]
-        console.log(obj)
-        let row = `<tr>
-      <th scope='row'>${obj.type}</th>
-      <td>${obj.title}</td>
-      <td>${obj.date}</td>
-      <td>${obj.date}</td>
-      <td>${obj.notes}</td>
-    </tr>`
-
-        $(`#${year}table`).append(row)
+        // console.log(obj)
+    //     let row = `<tr>
+    //   <th scope='row'>${obj.type}</th>
+    //   <td>${obj.title}</td>
+    //   <td>${obj.date}</td>
+    //   <td>${obj.date}</td>
+    //   <td>${obj.notes}</td>
+    // </tr>`
+        let tr = document.createElement("tr")
+        console.log("3333333333")
+        let th = document.createElement("th")
+            th.setAttribute("scope", "row")
+            th.innerText = obj.type
+        let td1 = document.createElement("td")
+            td1.innerText = obj.title
+        let td2 = document.createElement("td")
+        td2.innerText = obj.date
+        let td3 = document.createElement("td")
+        td3.innerText = obj.date
+        let td4 = document.createElement("td")
+        td4.innerText = obj.notes
+        let row = tr.appendChild(th).appendChild(td1).appendChild(td2).appendChild(td3).appendChild(td4)
+   accordion.appendChild(row)
     }
 
 }
 
 //make accordion and top row of table and add it to the page
 function loadUserDataToPage (eventData){
-    greetingBox.append(`${userFName} ${userLName}`)
+
+    greetingBox.append(userFName + " " + userLName)
     //make accordion item for each year
     let eventKeys = Object.keys(eventData)
     for(let i=eventKeys.length-1; i>=0; i--){
@@ -130,7 +144,7 @@ function loadUserDataToPage (eventData){
     </div>
     `
 
-        $(accordion).append(html)
+        accordion.append(html)
         addTableToAccordItem(eventKeys[i]);
     }
 
