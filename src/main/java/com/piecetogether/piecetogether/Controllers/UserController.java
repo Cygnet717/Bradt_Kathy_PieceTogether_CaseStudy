@@ -20,6 +20,7 @@ public class UserController {
 
     @RequestMapping(value={"/login"}, method = RequestMethod.GET)
     public ModelAndView login(){
+        System.out.println("the fuck");
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("userPage");
         return modelAndView;
@@ -44,12 +45,12 @@ public class UserController {
                             "There is already a user registered with the email provided");
         }
         if (bindingResult.hasErrors()) {
-            modelAndView.setViewName("loginPage");
+            modelAndView.setViewName("login");
         } else {
             userService.saveUser(user);
             modelAndView.addObject("successMessage", "User has been registered successfully");
             modelAndView.addObject("user", new User());
-            modelAndView.setViewName("loginPage");
+            modelAndView.setViewName("login");
 
         }
         return modelAndView;

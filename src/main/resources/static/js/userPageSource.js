@@ -97,7 +97,7 @@ function addTableToAccordItem(year){
     //   <td>${obj.notes}</td>
     // </tr>`
         let tr = document.createElement("tr")
-        console.log("3333333333")
+        console.log(tr)
         let th = document.createElement("th")
             th.setAttribute("scope", "row")
             th.innerText = obj.type

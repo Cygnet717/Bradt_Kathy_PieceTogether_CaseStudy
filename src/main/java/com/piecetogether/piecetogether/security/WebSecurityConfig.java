@@ -41,12 +41,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest()
                 .authenticated().and().csrf().disable().formLogin()
                 .loginPage("/login").failureUrl("/login?error=true")
-                .defaultSuccessUrl("/")
                 .usernameParameter("email")
                 .passwordParameter("password")
+                .defaultSuccessUrl("/")
                 .and().logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login").and().exceptionHandling()
+                .logoutSuccessUrl("/").and().exceptionHandling()
                 .accessDeniedPage("/");
     }
 
@@ -59,50 +59,3 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 }
 
-
-
-/*
-@Autowired
-    private UserService userService;
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-                http.authorizeRequests()
-                .antMatchers("/list_users").authenticated()
-                .anyRequest().permitAll()
-                .and()
-                .formLogin()
-                .usernameParameter("email")
-                .defaultSuccessUrl("/list_users")
-                .permitAll()
-                .and()
-                .logout().logoutSuccessUrl("/").permitAll();
-
-    }
-
-    @Bean
-    public UserDetailsService userDetailsService(){
-        return new CustomUserDetailsService();
-    }
-
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
-
-    @Bean
-    public DaoAuthenticationProvider authenticationProvider(){
-        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(userDetailsService());
-        authProvider.setPasswordEncoder((passwordEncoder()));
-
-        return authProvider;
-    }
-
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(authenticationProvider());
-    }
-
- */

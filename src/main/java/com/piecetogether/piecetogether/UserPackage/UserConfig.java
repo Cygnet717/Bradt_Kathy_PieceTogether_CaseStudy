@@ -34,8 +34,8 @@ public class UserConfig {
             Other o1 = new Other("Rezz concert", LocalDate.parse("2010-04-04"), LocalDate.parse("2010-04-04"), "Awesome!");
             Other o2 = new Other("Beerdabler", LocalDate.parse("2010-04-04"), LocalDate.parse("2010-04-04"), "Cold fun time drinking all the beer");
 
-            User kathy = new User("Kathy", "Bradt", "kathy@email.com", "Misty7!7");
-            User ben = new User("Ben", "Bangen", "bangenben@email.com", "Killenit69");
+            User kathy = new User("Kathy", "Bradt", "kathy@email.com", "$10$sRT8odqIRFy7cbOfAZWWa.HwDZKI3un4s/Jq6p3b1RG.Iddfmxlqu");
+            User ben = new User("Ben", "Bang", "bang@email.com", "$10$sRT8odqIRFy7cbOfAZWWa.HwDZKI3un4s/Jq6p3b1RG.Iddfmxlqu");
 
             List<Vacation> vacationList = List.of(v1, v2);
             List<Family> familyList = List.of(f1, f2);
