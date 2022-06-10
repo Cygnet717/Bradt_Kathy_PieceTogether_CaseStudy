@@ -22,7 +22,7 @@ public class UserController {
     public ModelAndView login(){
         System.out.println("the fuck");
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("userPage");
+        modelAndView.setViewName("loginPage");
         return modelAndView;
     }
 

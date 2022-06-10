@@ -17,15 +17,15 @@
 <img id="background" th:src="@{img/pexels-pixabay-268819.jpg}" alt="...">
 <div id="loginBox" class="container">
     <h3>Login</h3>
-    <form  th:action="@{/login}" method="post" th:object="${user}">
+    <form>
         <div class="mb-3">
             <label for="InputEmail" class="form-label">Email address</label>
-            <input name="email" type="email" style="border: 1px solid #589EA6" class="form-control" id="InputEmail" aria-describedby="emailHelp" th:field="*{email}" required>
+            <input name="email" type="email" style="border: 1px solid #589EA6" class="form-control" id="InputEmail" aria-describedby="emailHelp" required>
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
             <label for="InputPassword" class="form-label">Password</label>
-            <input name="password" type="password" style="border: 1px solid #589EA6" class="form-control" id="InputPassword" th:field="*{password}" required>
+            <input name="password" type="password" style="border: 1px solid #589EA6" class="form-control" id="InputPassword" required>
         </div>
         <button id="formButton" type="submit" class="btn btn-primary" >Login</button>
     </form>

@@ -17,10 +17,10 @@ public class NavigationController {
 //    public String getHomePage(){
 //        return "index";
 //    }
-//
-//    @GetMapping("/user")
-//    public String getUserPage(){
-//
-//        return "userPage";
-//    }
+
+    @GetMapping("/user")
+    public String getUserPage(){
+
+        return "userPage";
+    }
 }
