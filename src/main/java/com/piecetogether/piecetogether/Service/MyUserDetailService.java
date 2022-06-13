@@ -10,17 +10,23 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+
 @Service
 public class MyUserDetailService implements UserDetailsService {
 
     @Autowired
-    private UserService userServic;
+    private UserService userService;
 
     @Override
     @Transactional
-    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        User user = userServic.findUserByUserName(userName);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = userService.findUserByEmail(email);
+        if(user == null){
+            throw new UsernameNotFoundException(("Not Found!"));
+        }
         GrantedAuthority authorities = getUserAuthority(user);
         return buildUserForAuthentication(user, authorities);
     }
@@ -31,9 +37,13 @@ public class MyUserDetailService implements UserDetailsService {
 
 
     private UserDetails buildUserForAuthentication(User user, GrantedAuthority authorities) {
+        List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
+
+            grantedAuthorities.add(authorities);
+
         return new org.springframework.security.core.userdetails.User(
                 user.getEmail(), user.getPassword(),
                 user.getActive(), true,
-                true, true, (Collection<? extends GrantedAuthority>) authorities);
+                true, true, (Collection<? extends GrantedAuthority>) grantedAuthorities);
     }
 }

@@ -10,15 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class CustomErrorController implements ErrorController {
 
-
-    @RequestMapping("/error")
-    @ResponseBody
-    String error(HttpServletRequest request) {
-        return "<h1>Error occurred</h1>";
-    }
-
-
-    public String getErrorPath() {
-        return "/error";
-    }
+//
+//    @RequestMapping("/error")
+//    @ResponseBody
+//    String error(HttpServletRequest request) {
+//        return "<h1>Error occurred</h1>";
+//    }
+//
+//
+//    public String getErrorPath() {
+//        return "/error";
+//    }
 }

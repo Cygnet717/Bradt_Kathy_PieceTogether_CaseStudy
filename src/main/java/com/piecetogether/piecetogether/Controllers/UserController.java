@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
@@ -18,12 +20,35 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value={"/login"}, method = RequestMethod.GET)
-    public ModelAndView login(){
-        System.out.println("the fuck");
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("loginPage");
-        return modelAndView;
+//    @RequestMapping(value={"/login"}, method = RequestMethod.GET)
+//    public ModelAndView login(){
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("loginPage"); // change back to login.......
+//
+//        return modelAndView;
+//    }
+
+    @GetMapping("/login")
+    public String login(){
+        return "loginPage";
+    }
+
+    @RequestMapping(value = {"/process_login"}, method = RequestMethod.POST)
+    public String processUserLogin(HttpServletRequest request, User user){
+        System.out.println("processing login please!!!!!!!");
+        String userEmail = user.getEmail();
+        String userPassword = user.getPassword();
+        System.out.println(userEmail);
+        authWithHttpServletRequest(request, userEmail, userPassword);
+        return "userPage";
+    }
+
+    private void authWithHttpServletRequest(HttpServletRequest request, String userEmail, String userPassword) {
+        try{
+            request.login(userEmail, userPassword);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
     }
 
     @RequestMapping(value="/registration", method = RequestMethod.GET)
@@ -50,7 +75,7 @@ public class UserController {
             userService.saveUser(user);
             modelAndView.addObject("successMessage", "User has been registered successfully");
             modelAndView.addObject("user", new User());
-            modelAndView.setViewName("login");
+            modelAndView.setViewName("loginPage");
 
         }
         return modelAndView;
