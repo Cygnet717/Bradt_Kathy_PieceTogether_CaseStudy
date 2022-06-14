@@ -14,7 +14,7 @@
 </head>
 <body>
 <div th:replace="~{fragments/navigation :: navigation}"></div>
-<img id="background" src="../static/img/pexels-pixabay-268819.jpg" alt="...">
+<img id="" class="" th:src="@{/img/pexels-pixabay-268819.jpg}" src="/img/pexels-pixabay-268819.jpg" alt="..."/>
 <div id="loginBox" class="container">
     <h3>Login</h3>
     <form name="f" th:action="@{/login}" method="post">

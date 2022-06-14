@@ -152,5 +152,5 @@ function loadUserDataToPage (eventData){
 
 //only if on the userPage run this function
 console.log("connected to  userpage source.js")
-loadUserDataToPage(eventData)
+// loadUserDataToPage(eventData)
 
