@@ -2,6 +2,7 @@ package com.kathybradt.piecetogether.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Date;
 import java.time.LocalDate;
 
 
@@ -17,8 +18,8 @@ public class Jobs extends Event implements Serializable{
     private String title;
     private Double hourlyPay;
     private Integer salary;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private Date startDate;
+    private Date endDate;
     private String notes;
 
     public Jobs() {
@@ -28,7 +29,7 @@ public class Jobs extends Event implements Serializable{
         salary = 0;
     }
 
-    public Jobs(String title, String notes, LocalDate startDate, String company, Double hourlyPay) {
+    public Jobs(String title, String notes, Date startDate, String company, Double hourlyPay) {
         super();
         this.title = title;
         this.notes = notes;
@@ -38,7 +39,7 @@ public class Jobs extends Event implements Serializable{
 
     }
 
-    public Jobs(String title, String notes, LocalDate startDate, String company, Integer salary) {
+    public Jobs(String title, String notes, Date startDate, String company, Integer salary) {
         super(title, notes, startDate);
         this.company = company;
         this.salary = salary;
@@ -47,7 +48,7 @@ public class Jobs extends Event implements Serializable{
         this.startDate = startDate;
     }
 
-    public Jobs(String title, String notes, LocalDate startDate, LocalDate endDate, String company, Double hourlyPay) {
+    public Jobs(String title, String notes, Date startDate, Date endDate, String company, Double hourlyPay) {
         super(title, notes, startDate, endDate);
         this.company = company;
         this.hourlyPay = hourlyPay;
@@ -57,7 +58,7 @@ public class Jobs extends Event implements Serializable{
         this.endDate = endDate;
     }
 
-    public Jobs(String title, String notes, LocalDate startDate, LocalDate endDate, String company, Integer salary) {
+    public Jobs(String title, String notes, Date startDate, Date endDate, String company, Integer salary) {
         super(title, notes, startDate, endDate);
         this.company = company;
         this.salary = salary;
@@ -107,19 +108,19 @@ public class Jobs extends Event implements Serializable{
         this.salary = salary;
     }
 
-    public LocalDate getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 

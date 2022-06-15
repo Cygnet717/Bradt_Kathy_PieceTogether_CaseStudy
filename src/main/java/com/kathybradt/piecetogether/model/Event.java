@@ -1,13 +1,14 @@
 package com.kathybradt.piecetogether.model;
 
-import java.time.LocalDate;
+import java.sql.Date;
+
 
 
 public class Event {
     public String title;
     public String notes;
-    public LocalDate startDate;
-    public LocalDate endDate;
+    public Date startDate;
+    public Date endDate;
 
     public Event() {
         title = "";
@@ -16,14 +17,14 @@ public class Event {
         endDate = null;
     }
 
-    public Event(String title, String notes, LocalDate startDate, LocalDate endDate) {
+    public Event(String title, String notes, Date startDate, Date endDate) {
         this.title = title;
         this.notes = notes;
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-    public Event(String title, String notes, LocalDate startDate) {
+    public Event(String title, String notes, Date startDate) {
         this.title = title;
         this.notes = notes;
         this.startDate = startDate;
@@ -45,19 +46,19 @@ public class Event {
         this.notes = notes;
     }
 
-    public LocalDate getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 

@@ -1,6 +1,7 @@
 package com.kathybradt.piecetogether.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.time.LocalDate;
 
 import javax.persistence.*;
@@ -15,14 +16,14 @@ public class School extends Event implements Serializable {
 
     private String title;
     private String notes;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private Date startDate;
+    private Date endDate;
 
     public School() {
         super();
     }
 
-    public School(String title, String notes, LocalDate startDate, LocalDate endDate) {
+    public School(String title, String notes, Date startDate, Date endDate) {
         super();
         this.title = title;
         this.notes = notes;
@@ -54,19 +55,19 @@ public class School extends Event implements Serializable {
         this.notes = notes;
     }
 
-    public LocalDate getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 }
