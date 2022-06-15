@@ -28,18 +28,12 @@ public class UserService implements UserDAO{
         return userRepository.findByEmail(email);
     }
 
-    //public ArrayList<Object> findEventsByYear(String email, Integer startDate) { return userRepository.findEventsByYearStartsWith(email, startDate); }
-    public ArrayList<Family> findFamilyEventsByYear(String email, Integer startDate ){ return userRepository.findFamilyEventsByYear(email, startDate);}
-
     public ArrayList<Jobs> findJobsEventsByYear(String email, Integer startDate ){ return userRepository.findJobsEventsByYear(email, startDate);}
 
     public ArrayList<Other> findOtherEventsByYear(String email, Integer startDate ){ return userRepository.findOtherEventsByYear(email, startDate);}
 
     public ArrayList<Pets> findPetsEventsByYear(String email, Integer startDate ){ return userRepository.findPetsEventsByYear(email, startDate);}
 
-    public ArrayList<School> findSchoolEventsByYear(String email, Integer startDate ){ return userRepository.findSchoolEventsByYear(email, startDate);}
-
-    public ArrayList<Vacation> findVacationEventsByYear(String email, Integer startDate ){ return userRepository.findVacationEventsByYear(email, startDate);}
 
     public User findUserByUserName(String firstName) {
         return userRepository.findByFirstName(firstName);

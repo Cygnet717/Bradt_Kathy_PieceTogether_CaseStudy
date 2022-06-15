@@ -19,18 +19,26 @@ public class Other extends Event implements Serializable{
     private String notes;
     private Date startDate;
     private Date endDate;
+    private String eventType;
 
     public Other() {
         super();
     }
 
-    public Other(String title, Date startDate, Date endDate, String notes) {
+    public Other(String title, String notes, Date startDate, Date endDate, String eventType) {
         super();
         this.title = title;
         this.notes = notes;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.eventType = eventType;
     }
+
+    @Override
+    public String getEventType() { return eventType; }
+
+    @Override
+    public void setEventType(String eventType) { this.eventType = eventType; }
 
     public Long getEventId() {
         return eventId;

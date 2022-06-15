@@ -21,6 +21,7 @@ public class Jobs extends Event implements Serializable{
     private Date startDate;
     private Date endDate;
     private String notes;
+    private String eventType = "Job";
 
     public Jobs() {
         super();
@@ -30,7 +31,7 @@ public class Jobs extends Event implements Serializable{
     }
 
     public Jobs(String title, String notes, Date startDate, String company, Double hourlyPay) {
-        super();
+
         this.title = title;
         this.notes = notes;
         this.startDate = startDate;
@@ -40,7 +41,7 @@ public class Jobs extends Event implements Serializable{
     }
 
     public Jobs(String title, String notes, Date startDate, String company, Integer salary) {
-        super(title, notes, startDate);
+
         this.company = company;
         this.salary = salary;
         this.title = title;
@@ -49,7 +50,7 @@ public class Jobs extends Event implements Serializable{
     }
 
     public Jobs(String title, String notes, Date startDate, Date endDate, String company, Double hourlyPay) {
-        super(title, notes, startDate, endDate);
+
         this.company = company;
         this.hourlyPay = hourlyPay;
         this.title = title;
@@ -59,7 +60,7 @@ public class Jobs extends Event implements Serializable{
     }
 
     public Jobs(String title, String notes, Date startDate, Date endDate, String company, Integer salary) {
-        super(title, notes, startDate, endDate);
+
         this.company = company;
         this.salary = salary;
         this.title = title;

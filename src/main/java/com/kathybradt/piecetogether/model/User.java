@@ -23,15 +23,6 @@ public class User {
 
     private String role;
 
-    @OneToMany(targetEntity= Family.class, cascade = {CascadeType.ALL})
-    private List<Family> FamilyList;
-
-    @OneToMany(targetEntity= Vacation.class, cascade = {CascadeType.ALL})
-    private List<Vacation> VacationList;
-
-    @OneToMany(targetEntity= School.class, cascade = {CascadeType.ALL})
-    private List<School> SchoolList;
-
     @OneToMany(targetEntity= Jobs.class, cascade = {CascadeType.ALL})
     private List<Jobs> JobsList;
 
@@ -51,30 +42,6 @@ public class User {
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-    }
-
-    public List<Family> getFamilyList() {
-        return FamilyList;
-    }
-
-    public void setFamilyList(List<Family> FamilyList) {
-        this.FamilyList = FamilyList;
-    }
-
-    public List<Vacation> getVacationList() {
-        return VacationList;
-    }
-
-    public void setVacationList(List<Vacation> VacationList) {
-        this.VacationList = VacationList;
-    }
-
-    public List<School> getSchoolList() {
-        return SchoolList;
-    }
-
-    public void setSchoolList(List<School> SchoolList) {
-        this.SchoolList = SchoolList;
     }
 
     public List<Jobs> getJobsList() {

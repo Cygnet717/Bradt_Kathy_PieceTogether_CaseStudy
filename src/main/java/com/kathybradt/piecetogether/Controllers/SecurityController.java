@@ -23,20 +23,14 @@ public class SecurityController {
         String userEmail = principal.getName();
         //User currUser = userService.findUserByEmail(userEmail);
         ArrayList<Object> userData = new ArrayList<Object>();
-        ArrayList<Family> familyEvents = userService.findFamilyEventsByYear(userEmail, 2020);
         ArrayList<Jobs> jobsEvents = userService.findJobsEventsByYear(userEmail, 2020);
         ArrayList<Other> otherEvents = userService.findOtherEventsByYear(userEmail, 2020);
         ArrayList<Pets> petsEvents = userService.findPetsEventsByYear(userEmail, 2020);
-        ArrayList<School> schoolEvents = userService.findSchoolEventsByYear(userEmail, 2020);
-        ArrayList<Vacation> vacationEvents = userService.findVacationEventsByYear(userEmail, 2020);
 //        userData.add(currUser);
 
-        userData.addAll(familyEvents);
         userData.addAll(jobsEvents);
         userData.addAll(otherEvents);
         userData.addAll(petsEvents);
-        userData.addAll(schoolEvents);
-        userData.addAll(vacationEvents);
         return userData;
     }
 

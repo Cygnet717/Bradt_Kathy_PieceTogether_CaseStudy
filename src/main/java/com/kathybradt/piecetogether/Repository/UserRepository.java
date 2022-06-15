@@ -26,8 +26,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
 //            "or YEAR(f.startDate) = ?2 )")
 //    ArrayList<Object> findEventsByYearStartsWith(String email, Integer startDate);
 
-    @Query("Select f FROM User u, Family f WHERE u.email = ?1 AND YEAR(f.startDate) = ?2")
-    ArrayList<Family> findFamilyEventsByYear(String email, Integer startDate);
 
     @Query("Select j FROM User u, Jobs j WHERE u.email = ?1 AND YEAR(j.startDate) = ?2")
     ArrayList<Jobs> findJobsEventsByYear(String email, Integer startDate);
@@ -38,9 +36,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("Select p FROM User u, Pets p WHERE u.email = ?1 AND YEAR(p.startDate) = ?2")
     ArrayList<Pets> findPetsEventsByYear(String email, Integer startDate);
 
-    @Query("Select s FROM User u, School s WHERE u.email = ?1 AND YEAR(s.startDate) = ?2")
-    ArrayList<School> findSchoolEventsByYear(String email, Integer startDate);
 
-    @Query("Select v FROM User u, Vacation v WHERE u.email = ?1 AND YEAR(v.startDate) = ?2")
-    ArrayList<Vacation> findVacationEventsByYear(String email, Integer startDate);
 }

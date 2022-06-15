@@ -37,19 +37,13 @@ public class NavigationController {
         String year = "2020";
 
         ArrayList<Object> userData = new ArrayList<Object>();
-        ArrayList<Family> familyEvents = userService.findFamilyEventsByYear(userEmail, Integer.valueOf(year));
         ArrayList<Jobs> jobsEvents = userService.findJobsEventsByYear(userEmail, Integer.valueOf(year));
         ArrayList<Other> otherEvents = userService.findOtherEventsByYear(userEmail, Integer.valueOf(year));
         ArrayList<Pets> petsEvents = userService.findPetsEventsByYear(userEmail, Integer.valueOf(year));
-        ArrayList<School> schoolEvents = userService.findSchoolEventsByYear(userEmail, Integer.valueOf(year));
-        ArrayList<Vacation> vacationEvents = userService.findVacationEventsByYear(userEmail, Integer.valueOf(year));
 
-        userData.addAll(familyEvents);
         userData.addAll(jobsEvents);
         userData.addAll(otherEvents);
         userData.addAll(petsEvents);
-        userData.addAll(schoolEvents);
-        userData.addAll(vacationEvents);
         modelAndView.addObject("events", userData);
         System.out.println(userData);
         modelAndView.addObject("user", currUser);

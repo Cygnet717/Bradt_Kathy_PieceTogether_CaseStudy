@@ -9,25 +9,25 @@ public class Event {
     public String notes;
     public Date startDate;
     public Date endDate;
+    public String eventType;
 
     public Event() {
-        title = "";
-        notes = "";
-        startDate = null;
-        endDate = null;
+
     }
 
-    public Event(String title, String notes, Date startDate, Date endDate) {
+    public Event(String title, String notes, Date startDate, Date endDate, String eventType) {
         this.title = title;
         this.notes = notes;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.eventType = eventType;
     }
 
-    public Event(String title, String notes, Date startDate) {
+    public Event(String title, String notes, Date startDate, String eventType) {
         this.title = title;
         this.notes = notes;
         this.startDate = startDate;
+        this.eventType = eventType;
     }
 
     public String getTitle() {
@@ -62,4 +62,11 @@ public class Event {
         this.endDate = endDate;
     }
 
+    public String getEventType() {
+        return eventType;
+    }
+
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
+    }
 }
