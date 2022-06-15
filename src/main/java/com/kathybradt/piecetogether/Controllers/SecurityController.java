@@ -19,13 +19,13 @@ public class SecurityController {
 
     @RequestMapping(value = "/userdata", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Object> getCurrentUser(Principal principal){
+    public ArrayList<Event> getCurrentUser(Principal principal){
         String userEmail = principal.getName();
         //User currUser = userService.findUserByEmail(userEmail);
-        ArrayList<Object> userData = new ArrayList<Object>();
-        ArrayList<Jobs> jobsEvents = userService.findJobsEventsByYear(userEmail, 2020);
-        ArrayList<Other> otherEvents = userService.findOtherEventsByYear(userEmail, 2020);
-        ArrayList<Pets> petsEvents = userService.findPetsEventsByYear(userEmail, 2020);
+        ArrayList<Event> userData = new ArrayList<Event>();
+        ArrayList<Jobs> jobsEvents = userService.findJobsEvents(userEmail);
+        ArrayList<Other> otherEvents = userService.findOtherEvents(userEmail);
+        ArrayList<Pets> petsEvents = userService.findPetsEvents(userEmail);
 //        userData.add(currUser);
 
         userData.addAll(jobsEvents);

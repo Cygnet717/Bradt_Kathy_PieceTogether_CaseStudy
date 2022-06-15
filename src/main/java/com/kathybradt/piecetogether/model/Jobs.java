@@ -69,6 +69,16 @@ public class Jobs extends Event implements Serializable{
         this.endDate = endDate;
     }
 
+    @Override
+    public String getEventType() {
+        return eventType;
+    }
+
+    @Override
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
+    }
+
     public Long getEventId() {
         return eventId;
     }

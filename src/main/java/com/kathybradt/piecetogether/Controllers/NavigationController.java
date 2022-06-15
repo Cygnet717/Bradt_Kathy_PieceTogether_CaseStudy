@@ -36,16 +36,18 @@ public class NavigationController {
         //userData = [ 2022: [objects in that year], 2021: [objects in that year], ect]
         String year = "2020";
 
-        ArrayList<Object> userData = new ArrayList<Object>();
-        ArrayList<Jobs> jobsEvents = userService.findJobsEventsByYear(userEmail, Integer.valueOf(year));
-        ArrayList<Other> otherEvents = userService.findOtherEventsByYear(userEmail, Integer.valueOf(year));
-        ArrayList<Pets> petsEvents = userService.findPetsEventsByYear(userEmail, Integer.valueOf(year));
-
-        userData.addAll(jobsEvents);
-        userData.addAll(otherEvents);
-        userData.addAll(petsEvents);
+        ArrayList<Event> userData = userService.findSortAllEvents(userEmail);
+//
+//        ArrayList<Object> userData = new ArrayList<Object>();
+//        ArrayList<Jobs> jobsEvents = userService.findJobsEventsByYear(userEmail, Integer.valueOf(year));
+//        ArrayList<Other> otherEvents = userService.findOtherEventsByYear(userEmail, Integer.valueOf(year));
+//        ArrayList<Pets> petsEvents = userService.findPetsEventsByYear(userEmail, Integer.valueOf(year));
+//
+//        userData.addAll(jobsEvents);
+//        userData.addAll(otherEvents);
+//        userData.addAll(petsEvents);
         modelAndView.addObject("events", userData);
-        System.out.println(userData);
+//        System.out.println(userData);
         modelAndView.addObject("user", currUser);
 
         return modelAndView;

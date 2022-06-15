@@ -7,8 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
-import java.util.ArrayList;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class UserService implements UserDAO{
@@ -28,12 +27,29 @@ public class UserService implements UserDAO{
         return userRepository.findByEmail(email);
     }
 
-    public ArrayList<Jobs> findJobsEventsByYear(String email, Integer startDate ){ return userRepository.findJobsEventsByYear(email, startDate);}
 
-    public ArrayList<Other> findOtherEventsByYear(String email, Integer startDate ){ return userRepository.findOtherEventsByYear(email, startDate);}
 
-    public ArrayList<Pets> findPetsEventsByYear(String email, Integer startDate ){ return userRepository.findPetsEventsByYear(email, startDate);}
+    public ArrayList<Jobs> findJobsEvents(String email){ return userRepository.findJobsEvents(email);}
 
+    public ArrayList<Other> findOtherEvents(String email){ return userRepository.findOtherEvents(email);}
+
+    public ArrayList<Pets> findPetsEvents(String email){ return userRepository.findPetsEvents(email);}
+
+    public ArrayList<Event> findSortAllEvents(String email) {
+        ArrayList<Jobs> allJobs = userRepository.findJobsEvents(email);
+        ArrayList<Other> allOther = userRepository.findOtherEvents(email);
+        ArrayList<Pets> allPets = userRepository.findPetsEvents(email);
+
+        ArrayList<Event> allEventsSorted = new ArrayList<>();
+        allEventsSorted.addAll(allOther);
+        allEventsSorted.addAll(allJobs);
+        allEventsSorted.addAll(allPets);
+
+        Comparator<Event> compareByDate = (Event o1, Event o2) -> o1.getStartDate().compareTo(o2.getStartDate());
+        Collections.sort(allEventsSorted, compareByDate.reversed());
+
+        return allEventsSorted;
+    }
 
     public User findUserByUserName(String firstName) {
         return userRepository.findByFirstName(firstName);
