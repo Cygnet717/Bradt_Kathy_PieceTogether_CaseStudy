@@ -35,7 +35,7 @@ public class UserService implements UserDAO{
 
     public ArrayList<Pets> findPetsEvents(String email){ return userRepository.findPetsEvents(email);}
 
-    public ArrayList<Event> findSortAllEvents(String email) {
+    public HashMap<Integer, ArrayList<Event>> findSortAllEvents(String email) {
         ArrayList<Jobs> allJobs = userRepository.findJobsEvents(email);
         ArrayList<Other> allOther = userRepository.findOtherEvents(email);
         ArrayList<Pets> allPets = userRepository.findPetsEvents(email);
@@ -44,11 +44,26 @@ public class UserService implements UserDAO{
         allEventsSorted.addAll(allOther);
         allEventsSorted.addAll(allJobs);
         allEventsSorted.addAll(allPets);
+// sorting dates not necessary any more
+//        Comparator<Event> compareByDate = (Event o1, Event o2) -> o1.getStartDate().compareTo(o2.getStartDate());
+//        Collections.sort(allEventsSorted, compareByDate.reversed());
 
-        Comparator<Event> compareByDate = (Event o1, Event o2) -> o1.getStartDate().compareTo(o2.getStartDate());
-        Collections.sort(allEventsSorted, compareByDate.reversed());
+        HashMap<Integer, ArrayList<Event>> eventsCollectedByYear = new HashMap<>();
 
-        return allEventsSorted;
+        for(Event event: allEventsSorted){
+            Integer currentEventYear = event.getStartDate().toLocalDate().getYear();
+            ArrayList<Event> yearList = eventsCollectedByYear.get(currentEventYear);
+
+            if(yearList == null){
+                yearList = new ArrayList<Event>();
+                yearList.add(event);
+                eventsCollectedByYear.put(currentEventYear, yearList);
+            } else {
+                if(!yearList.contains(event)) yearList.add(event);
+            }
+        }
+
+        return eventsCollectedByYear;
     }
 
     public User findUserByUserName(String firstName) {

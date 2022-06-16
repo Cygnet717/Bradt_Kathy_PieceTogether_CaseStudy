@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 @Controller
 public class SecurityController {
@@ -19,18 +20,10 @@ public class SecurityController {
 
     @RequestMapping(value = "/userdata", method = RequestMethod.GET)
     @ResponseBody
-    public ArrayList<Event> getCurrentUser(Principal principal){
+    public HashMap<Integer, ArrayList<Event>> getCurrentUser(Principal principal){
         String userEmail = principal.getName();
-        //User currUser = userService.findUserByEmail(userEmail);
-        ArrayList<Event> userData = new ArrayList<Event>();
-        ArrayList<Jobs> jobsEvents = userService.findJobsEvents(userEmail);
-        ArrayList<Other> otherEvents = userService.findOtherEvents(userEmail);
-        ArrayList<Pets> petsEvents = userService.findPetsEvents(userEmail);
-//        userData.add(currUser);
+        HashMap<Integer, ArrayList<Event>> userData = userService.findSortAllEvents(userEmail);
 
-        userData.addAll(jobsEvents);
-        userData.addAll(otherEvents);
-        userData.addAll(petsEvents);
         return userData;
     }
 
