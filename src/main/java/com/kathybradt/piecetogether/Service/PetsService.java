@@ -1,6 +1,7 @@
 package com.kathybradt.piecetogether.Service;
 
 import com.kathybradt.piecetogether.Repository.PetsRepository;
+import com.kathybradt.piecetogether.model.Pets;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,5 +12,9 @@ public class PetsService {
     @Autowired
     public PetsService(PetsRepository petsRepository){
         this.petsRepository = petsRepository;
+    }
+
+    public Pets save(Pets event){
+        return petsRepository.save(event);
     }
 }
