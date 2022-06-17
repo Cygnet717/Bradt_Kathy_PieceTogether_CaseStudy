@@ -27,5 +27,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("Select p FROM User u, Pets p WHERE u.email = ?1")
     ArrayList<Pets> findPetsEvents(String email);
 
-// AND YEAR(j.startDate) = ?2 ORDER BY j.startDate
+
 }

@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 
 @Controller
@@ -31,11 +32,9 @@ public class UserController {
 
         String userEmail = principal.getName();
         User currUser = userService.findUserByEmail(userEmail);
-
-        HashMap<Integer, ArrayList<Event>> userData = userService.findSortAllEvents(userEmail);
+        HashMap<Integer, List<Event>> userData = userService.findSortAllEvents(currUser);
 
         modelAndView.addObject("yearData", userData);
-
         modelAndView.addObject("user", currUser);
 
         return modelAndView;

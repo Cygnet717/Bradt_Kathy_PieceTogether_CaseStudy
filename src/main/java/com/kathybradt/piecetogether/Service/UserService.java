@@ -35,35 +35,32 @@ public class UserService implements UserDAO{
 
     public ArrayList<Pets> findPetsEvents(String email){ return userRepository.findPetsEvents(email);}
 
-    public HashMap<Integer, ArrayList<Event>> findSortAllEvents(String email) {
-        ArrayList<Jobs> allJobs = userRepository.findJobsEvents(email);
-        ArrayList<Other> allOther = userRepository.findOtherEvents(email);
-        ArrayList<Pets> allPets = userRepository.findPetsEvents(email);
+    public HashMap<Integer, List<Event>> findSortAllEvents(User currUser) {
 
-        ArrayList<Event> allEventsSorted = new ArrayList<>();
-        allEventsSorted.addAll(allOther);
-        allEventsSorted.addAll(allJobs);
-        allEventsSorted.addAll(allPets);
-// sorting dates not necessary any more
-//        Comparator<Event> compareByDate = (Event o1, Event o2) -> o1.getStartDate().compareTo(o2.getStartDate());
-//        Collections.sort(allEventsSorted, compareByDate.reversed());
+        List<Jobs> allUserJobs = currUser.getJobsList();
+        List<Pets> allUserPets = currUser.getPetsList();
+        List<Other> allUserOther = currUser.getOtherList();
+        ArrayList<Event> allUserEvents = new ArrayList<Event>();
+        allUserEvents.addAll(allUserJobs);
+        allUserEvents.addAll(allUserPets);
+        allUserEvents.addAll(allUserOther);
 
-        HashMap<Integer, ArrayList<Event>> eventsCollectedByYear = new HashMap<>();
+        HashMap<Integer, List<Event>> userEventsCollectedByYear = new HashMap<>();
 
-        for(Event event: allEventsSorted){
+        for(Event event: allUserEvents){
             Integer currentEventYear = event.getStartDate().toLocalDate().getYear();
-            ArrayList<Event> yearList = eventsCollectedByYear.get(currentEventYear);
+            List<Event> yearList = userEventsCollectedByYear.get(currentEventYear);
 
             if(yearList == null){
                 yearList = new ArrayList<Event>();
                 yearList.add(event);
-                eventsCollectedByYear.put(currentEventYear, yearList);
+                userEventsCollectedByYear.put(currentEventYear, yearList);
             } else {
                 if(!yearList.contains(event)) yearList.add(event);
             }
         }
 
-        return eventsCollectedByYear;
+        return userEventsCollectedByYear;
     }
 
     public User findUserByUserName(String firstName) {
