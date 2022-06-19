@@ -43,6 +43,11 @@ public class Jobs extends Event implements Serializable{
         this.salary = salary;
     }
 
+    @Override
+    public String toString(){
+        return company + ' ' + hourlyPay + " " + title;
+    }
+
     public User getUser() {
         return user;
     }

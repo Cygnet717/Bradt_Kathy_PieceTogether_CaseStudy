@@ -22,15 +22,15 @@ $('#selectEventType').change(() => {
             '                   <div class="col">\n' +
             '                      <div class="collapse multi-collapse" id="hourlyCollapse">\n' +
             '                          <div class="form-floating">\n' +
-            '                              <input name="hourly" type="text" class="form-control" id="hourly" aria-describedby="hourlyHelp">\n' +
-            '                              <label for="hourly" >Hourly</label>\n' +
+            '                              <input name="hourlyPay" type="number" step="0.01" class="form-control" id="hourlyPay" aria-describedby="hourlyHelp">\n' +
+            '                              <label for="hourlyPay" >Hourly</label>\n' +
             '                          </div>\n' +
             '                      </div>\n' +
             '                   </div>\n' +
             '                   <div class="col">\n' +
             '                      <div class="collapse multi-collapse" id="salaryCollapse">\n' +
             '                          <div class="form-floating">\n' +
-            '                               <input name="salary" type="text" class="form-control" id="Salary" aria-describedby="salaryHelp">\n' +
+            '                               <input name="salary" type="number" class="form-control" id="Salary" aria-describedby="salaryHelp">\n' +
             '                               <label for="salary" >Salary</label>\n' +
             '                          </div>\n' +
             '                      </div>\n' +
