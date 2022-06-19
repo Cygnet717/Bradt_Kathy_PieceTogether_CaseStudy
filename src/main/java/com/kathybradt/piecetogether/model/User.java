@@ -23,13 +23,14 @@ public class User {
 
     private String role;
 
-    @OneToMany(targetEntity= Jobs.class, cascade = {CascadeType.ALL})
+    @OneToMany(targetEntity= Jobs.class, cascade = {CascadeType.ALL}, mappedBy = "user")
+//    @JoinColumn(name = "user_fk", referencedColumnName = "eventId")
     private List<Jobs> JobsList;
 
-    @OneToMany(targetEntity= Pets.class, cascade = {CascadeType.ALL})
+    @OneToMany(targetEntity= Pets.class, cascade = {CascadeType.ALL}, mappedBy = "user")
     private List<Pets> PetsList;
 
-    @OneToMany(targetEntity= Other.class, cascade = {CascadeType.ALL})
+    @OneToMany(targetEntity= Other.class, cascade = {CascadeType.ALL}, mappedBy = "user")
     private List<Other> OtherList;
 
     public User() {
@@ -43,6 +44,8 @@ public class User {
         this.email = email;
         this.password = password;
     }
+
+
 
     public List<Jobs> getJobsList() {
         return JobsList;

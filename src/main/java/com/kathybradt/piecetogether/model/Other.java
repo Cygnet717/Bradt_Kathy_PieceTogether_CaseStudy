@@ -15,6 +15,9 @@ public class Other extends Event implements Serializable{
     @GeneratedValue( strategy=GenerationType.IDENTITY )
     private Long eventId;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
     private String title;
     private String notes;
     private Date startDate;
@@ -22,16 +25,24 @@ public class Other extends Event implements Serializable{
     private String eventType;
 
     public Other() {
-        super();
     }
 
-    public Other(String title, String notes, Date startDate, Date endDate, String eventType) {
-        super();
-        this.title = title;
-        this.notes = notes;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.eventType = eventType;
+    public Other(String title, String notes, Date startDate, String eventType, User user) {
+        super(title, notes, startDate, eventType);
+        this.user = user;
+    }
+
+    public Other(String title, String notes, Date startDate, Date endDate, String eventType, User user) {
+        super(title, notes, startDate, endDate, eventType);
+        this.user = user;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

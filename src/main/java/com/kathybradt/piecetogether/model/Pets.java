@@ -15,6 +15,9 @@ public class Pets extends Event implements Serializable {
     @GeneratedValue( strategy=GenerationType.IDENTITY )
     private Long eventId;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
     private String title;
     private String petType;
     private Date startDate;
@@ -22,21 +25,21 @@ public class Pets extends Event implements Serializable {
     private String notes;
     private String eventType = "Pet";
 
-
     public Pets() {
-        super();
-        petType = "";
-
     }
 
-    public Pets(String title, String petType, Date startDate, Date endDate, String notes) {
-        super();
-        this.title = title;
-        this.notes = notes;
-        this.startDate = startDate;
-        this.endDate = endDate;
+    public Pets(String title, String notes, Date startDate, Date endDate, String eventType, User user, String petType) {
+        super(title, notes, startDate, endDate, eventType);
+        this.user = user;
         this.petType = petType;
+    }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

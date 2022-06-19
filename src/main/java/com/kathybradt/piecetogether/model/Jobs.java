@@ -14,6 +14,9 @@ public class Jobs extends Event implements Serializable{
     @GeneratedValue( strategy=GenerationType.IDENTITY )
     private Long eventId;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
     private String company;
     private String title;
     private Double hourlyPay;
@@ -24,51 +27,29 @@ public class Jobs extends Event implements Serializable{
     private String eventType = "Job";
 
     public Jobs() {
-        super();
-        company = "";
-        hourlyPay = 0.0;
-        salary = 0;
     }
 
-    public Jobs(String title, String notes, Date startDate, String company, Double hourlyPay) {
-
-        this.title = title;
-        this.notes = notes;
-        this.startDate = startDate;
+    public Jobs(String title, String notes, Date startDate, Date endDate, String eventType, User user, String company, Double hourlyPay) {
+        super(title, notes, startDate, endDate, eventType);
+        this.user = user;
         this.company = company;
         this.hourlyPay = hourlyPay;
-
     }
 
-    public Jobs(String title, String notes, Date startDate, String company, Integer salary) {
-
+    public Jobs(String title, String notes, Date startDate, Date endDate, String eventType, User user, String company, Integer salary) {
+        super(title, notes, startDate, endDate, eventType);
+        this.user = user;
         this.company = company;
         this.salary = salary;
-        this.title = title;
-        this.notes = notes;
-        this.startDate = startDate;
     }
 
-    public Jobs(String title, String notes, Date startDate, Date endDate, String company, Double hourlyPay) {
-
-        this.company = company;
-        this.hourlyPay = hourlyPay;
-        this.title = title;
-        this.notes = notes;
-        this.startDate = startDate;
-        this.endDate = endDate;
+    public User getUser() {
+        return user;
     }
 
-    public Jobs(String title, String notes, Date startDate, Date endDate, String company, Integer salary) {
-
-        this.company = company;
-        this.salary = salary;
-        this.title = title;
-        this.notes = notes;
-        this.startDate = startDate;
-        this.endDate = endDate;
+    public void setUser(User user) {
+        this.user = user;
     }
-
     @Override
     public String getEventType() {
         return eventType;
