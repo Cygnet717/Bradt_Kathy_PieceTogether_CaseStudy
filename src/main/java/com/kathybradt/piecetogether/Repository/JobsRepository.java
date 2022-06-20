@@ -9,6 +9,5 @@ import java.util.ArrayList;
 
 @Repository
 public interface JobsRepository extends JpaRepository<Jobs, Long> {
-//    @Query("INSERT User_id, jobsList_eventId INTO user_jobslist VALUES (?1, ?2)")
-//    void addJobUserLink(Long userId, Long eventId);
+
 }

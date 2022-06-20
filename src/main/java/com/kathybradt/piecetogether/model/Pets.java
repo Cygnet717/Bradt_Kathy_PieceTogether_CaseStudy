@@ -34,6 +34,12 @@ public class Pets extends Event implements Serializable {
         this.petType = petType;
     }
 
+    @Override
+    public String toString(){
+        return eventType + ' ' + eventId;
+    }
+
+
     public User getUser() {
         return user;
     }

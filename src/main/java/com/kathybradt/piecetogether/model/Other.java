@@ -37,6 +37,11 @@ public class Other extends Event implements Serializable{
         this.user = user;
     }
 
+    @Override
+    public String toString(){
+        return eventType + ' ' + eventId;
+    }
+
     public User getUser() {
         return user;
     }

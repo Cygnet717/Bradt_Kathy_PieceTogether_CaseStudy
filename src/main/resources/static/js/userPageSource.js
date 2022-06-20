@@ -1,5 +1,5 @@
 
-console.log("connected to userpage source.js")
+console.log("connected to user page source.js")
 
 const extraInputs = $("#extraInputs")
 
@@ -51,9 +51,21 @@ $('#selectEventType').change(() => {
 })
 
 
-const sendDeleteRequest = (id) => {
 
-    fetch(`/event?id=${id}`, {method: 'delete'})
+$(".deleteButton").on("click", (event) => {
+    console.log(event.target.dataset.eventdata)
+    let typeAndId = event.target.dataset.eventdata
+    let splitString = typeAndId.split(' ')
+
+    let id = parseInt(splitString[1])
+
+    fetch(`/event?eventType=${splitString[0]}&id=${id}`, {method: 'DELETE'})
         .then(res => console.log(res))
-        .then(c => location.reload())
-}
+        .then(data => {
+            console.log(data)
+            location.reload()
+        })
+
+    let parentId = event.target.dataset.parentid
+    $(`#${parentId}`).remove()
+})

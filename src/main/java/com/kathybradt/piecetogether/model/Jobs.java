@@ -45,7 +45,7 @@ public class Jobs extends Event implements Serializable{
 
     @Override
     public String toString(){
-        return company + ' ' + hourlyPay + " " + title;
+        return eventType + ' ' + eventId;
     }
 
     public User getUser() {

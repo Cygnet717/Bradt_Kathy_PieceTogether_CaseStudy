@@ -35,17 +35,13 @@
             <div th:id="'collapse' + ${year.key}" class="accordion-collapse collapse " th:aria-labelledby="'heading' + ${year.key}" data-bs-parent="#accordion">
                 <div class="accordion-body">
 
-                    <div th:each="event: ${year.value}">
+                    <div th:each="event: ${year.value}" th:id="|${event.title}${event.eventId}|">
                         <p>
                             <button class="btn btn-light" type="button" data-bs-toggle="collapse" th:data-bs-target="'#collapse'+ ${event.eventId}" aria-expanded="false" th:aria-controls="'collapse'+ ${event.eventId}">
                                 <span th:text="${event.eventType}"></span>
                                 <span th:text="${event.title}"></span>
-
                             </button>
-
-                        <p th:onclick="|sendDeleteRequest(${event.eventId})|">&#9747;</p>
-
-
+                            <p class="deleteButton" th:data-eventData="${event}" th:data-parentid="|${event.title}${event.eventId}|">&#9747;</p>
                         </p>
                         <div class="collapse" th:id="'collapse'+ ${event.eventId}">
                             <div class="card card-body">
@@ -104,7 +100,7 @@
 
                     <div class="mb-3">
                         <label for="endDate" class="form-label">End Date</label>
-                        <input name="endDate" type="date" class="form-control" id="endDate" aria-describedby="dateHelp" required>
+                        <input name="endDate" type="date" class="form-control" id="endDate" aria-describedby="dateHelp">
                     </div>
 
                     <div class="form-floating">

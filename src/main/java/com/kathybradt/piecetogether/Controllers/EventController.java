@@ -4,10 +4,7 @@ import com.kathybradt.piecetogether.Service.JobsService;
 import com.kathybradt.piecetogether.Service.OtherService;
 import com.kathybradt.piecetogether.Service.PetsService;
 import com.kathybradt.piecetogether.Service.UserService;
-import com.kathybradt.piecetogether.model.Jobs;
-import com.kathybradt.piecetogether.model.Other;
-import com.kathybradt.piecetogether.model.Pets;
-import com.kathybradt.piecetogether.model.User;
+import com.kathybradt.piecetogether.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
@@ -50,10 +47,25 @@ public class EventController {
 
     @DeleteMapping("/event")
     @ResponseBody
-    public RedirectView deleteEvent(@RequestParam Long id){
-        System.out.println("----------------------------------");
-        Other otherEvent = otherService.get(id);
-        otherService.delete(otherEvent);
-        return new RedirectView("/user");
+    public void deleteEvent(@RequestParam String eventType, @RequestParam Long id){
+//        System.out.println(eventType );
+//        System.out.println(id);
+
+        switch (eventType){
+            case "Job":
+                Jobs jobEvent = jobsService.get(id);
+                jobsService.delete(jobEvent);
+                break;
+            case "Pets":
+                Pets petsEvent = petsService.get(id);
+                petsService.delete(petsEvent);
+                break;
+            default:
+                Other otherEvent = otherService.get(id);
+                otherService.delete(otherEvent);
+
+        }
+
+        new RedirectView("/user");
     }
 }
