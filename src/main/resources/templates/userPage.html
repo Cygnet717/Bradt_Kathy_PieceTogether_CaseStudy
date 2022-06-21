@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/css/userPage.css"/>
 </head>
 <body>
-<div th:replace="~{fragments/navigation :: navigation}"></div>
+<div th:replace="~{fragments/navigation :: navLoggedIn}"></div>
 <div id="userControlBox" class="container">
 
     <h3 id="greetingBox">Hello <span th:text="${user.firstName}">Name Here</span></h3>
@@ -120,7 +120,7 @@
         </div>
     </div>
 </div>
-
+<!--Off canvas for getting to Category view-->
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasLabel">Sort Events</h5>
@@ -135,12 +135,12 @@
                 Category
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="#">Jobs</a></li>
-                <li><a class="dropdown-item" href="#">Pets</a></li>
-                <li><a class="dropdown-item" href="#">School</a></li>
-                <li><a class="dropdown-item" href="#">Tattoos/Piercings</a></li>
-                <li><a class="dropdown-item" href="#">Vacation</a></li>
-                <li><a class="dropdown-item" href="#">Other</a></li>
+                <li><a class="dropdown-item" th:href="@{/user/category(type='Job')}">Jobs</a></li>
+                <li><a class="dropdown-item" th:href="@{/user/category(type='Pet')}">Pets</a></li>
+                <li><a class="dropdown-item" th:href="@{/user/category(type='School')}">School</a></li>
+                <li><a class="dropdown-item" th:href="@{/user/category(type='Family')}">Family</a></li>
+                <li><a class="dropdown-item" th:href="@{/user/category(type='Vacation')}">Vacation</a></li>
+                <li><a class="dropdown-item" th:href="@{/user/category(type='Other')}">Other</a></li>
             </ul>
         </div>
     </div>
