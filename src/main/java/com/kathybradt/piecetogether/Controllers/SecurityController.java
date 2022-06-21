@@ -20,12 +20,12 @@ public class SecurityController {
     @Autowired
     UserService userService;
 
-//    @RequestMapping(value = "/userdata", method = RequestMethod.GET)
-//    @ResponseBody
-//    public HashMap<Integer, List<Event>> getCurrentUser(Principal principal){
-//        String userEmail = principal.getName();
-//        User currUser = userService.findUserByEmail(userEmail);
-//
+    @RequestMapping(value = "/userdata", method = RequestMethod.GET)
+    @ResponseBody
+    public User getCurrentUser(Principal principal){
+        String userEmail = principal.getName();
+        User currUser = userService.findUserByEmail(userEmail);
+
 //        List<Jobs> allUserJobs = currUser.getJobsList();
 //        List<Pets> allUserPets = currUser.getPetsList();
 //        List<Other> allUserOther = currUser.getOtherList();
@@ -51,9 +51,9 @@ public class SecurityController {
 //
 //        Long userId = currUser.getId();
 //        HashMap<Integer, ArrayList<Event>> userData = userService.findSortAllEvents(userEmail, userId);
-//
-//        return userEventsCollectedByYear;
-//    }
+
+        return currUser;
+    }
 
 
 }

@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 import java.security.Principal;
-import java.util.List;
+
 
 @RestController
 public class EventController {
@@ -48,8 +48,6 @@ public class EventController {
     @DeleteMapping("/event")
     @ResponseBody
     public void deleteEvent(@RequestParam String eventType, @RequestParam Long id){
-//        System.out.println(eventType );
-//        System.out.println(id);
 
         switch (eventType){
             case "Job":

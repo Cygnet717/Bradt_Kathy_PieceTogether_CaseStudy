@@ -11,30 +11,30 @@
     <link rel="stylesheet" href="/css/loginPage.css"/>
 </head>
 <body>
-<div th:replace="~{fragments/navigation :: navigation}"></div>
+<div th:replace="~{fragments/navigation :: navLoggedOut}"></div>
 <img id="" class="" th:src="@{/img/pexels-pixabay-268819.jpg}" src="/img/pexels-pixabay-268819.jpg" alt="..."/>
 <div class="container">
     <h3>Register</h3>
     <form action="#" th:action="@{/registration}" method="post" th:object="${user}">
         <div class="mb-3">
             <label for="InputFName" class="form-label">First Name</label>
-            <input type="text" style="border: 1px solid #589EA6" class="form-control" id="InputFName" aria-describedby="inputFirstName" th:field="*{firstName}" required>
+            <input type="text" style="border: 1px solid #589EA6" class="form-control" id="InputFName" aria-describedby="inputFirstName" th:field="${user.firstName}" required>
 
         </div>
         <div class="mb-3">
             <label for="InputLName" class="form-label">Last Name</label>
-            <input type="text" style="border: 1px solid #589EA6" class="form-control" id="InputLName" aria-describedby="InputLastName" th:field="*{lastName}" required>
+            <input type="text" style="border: 1px solid #589EA6" class="form-control" id="InputLName" aria-describedby="InputLastName" th:field="${user.lastName}" required>
 
         </div>
 
         <div class="mb-3">
             <label for="InputEmail" class="form-label">Email address</label>
-            <input type="email" style="border: 1px solid #589EA6" class="form-control" id="InputEmail" aria-describedby="emailHelp" th:field="*{email}" required>
+            <input type="email" style="border: 1px solid #589EA6" class="form-control" id="InputEmail" aria-describedby="emailHelp" th:field="${user.email}" required>
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
             <label for="InputPassword" class="form-label">Password</label>
-            <input type="password" style="border: 1px solid #589EA6" class="form-control" id="InputPassword" th:field="*{password}" required>
+            <input type="password" style="border: 1px solid #589EA6" class="form-control" id="InputPassword" th:field="${user.password}" required>
         </div>
         <div class="mb-3">
             <label for="ConfPassword" class="form-label">Confirm Password</label>
