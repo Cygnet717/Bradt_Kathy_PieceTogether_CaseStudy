@@ -36,7 +36,6 @@ public class NavigationController {
         return "loginPage";
     }
 
-
     @RequestMapping(value="/registration", method = RequestMethod.GET)
     public ModelAndView registration(){
         ModelAndView modelAndView = new ModelAndView();
@@ -65,6 +64,11 @@ public class NavigationController {
 
         }
         return modelAndView;
+    }
+
+    @RequestMapping(value = "/bulkAdd")
+    public String bulkAddPage(){
+        return "bulkAdd.html";
     }
 
 }
