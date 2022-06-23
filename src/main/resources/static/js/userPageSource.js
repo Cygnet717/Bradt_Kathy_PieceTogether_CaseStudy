@@ -53,41 +53,28 @@ $('#selectEventType').change(() => {
 
 
 $(".deleteButton").on("click", (event) => {
-    console.log($(this).data())
-    //console.log($(this).attr())
-    console.log(event.target.getAttribute("data-eventdata"))
     console.log(event.target.dataset.eventdata)
-    // let typeAndId = event.target.dataset.eventdata
-    // let splitString = typeAndId.split(' ')
-    //
-    // let id = parseInt(splitString[1])
-    //
-    // fetch(`/event?eventType=${splitString[0]}&id=${id}`, {method: 'DELETE'})
-    //     .then(res => console.log(res))
-    //     .then(data => {
-    //         console.log(data)
-    //         location.reload()
-    //     })
-    //
-    // let parentId = event.target.dataset.parentid
-    // $(`#${parentId}`).remove()
+    console.log(event.target.dataset.parentid)
+    let typeAndId = event.target.dataset.eventdata
+    let splitString = typeAndId.split(' ')
+
+    let id = parseInt(splitString[1])
+
+    fetch(`/event?eventType=${splitString[0]}&id=${id}`, {method: 'DELETE'})
+        .then(res => console.log(res))
+        .then(data => {
+            console.log(data)
+            location.reload()
+        })
+
+    let parentId = event.target.dataset.parentid
+    $(`#${parentId}`).remove()
 })
 
 $(".editButton").click((event) => {
-    console.log($(this).data())
+    let arrayData = event.target.dataset.eventdata.split('!')
+    console.log(arrayData)
     // open model and populate with data
-    // $("#staticBackdrop")
-    //     .addClass("show")
-    //     .attr("role", "dialog")
-    //     .attr("style", "display: block")
-    console.log(event.target.dataset.eventData)
-})
 
-// function deleteClicked(){
-//     console.log($(this).data())
-// }
-//
-// function editClicked(){
-//     // console.log(type)
-//     console.log($(this).data())
-// }
+
+})

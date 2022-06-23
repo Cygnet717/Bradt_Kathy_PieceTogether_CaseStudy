@@ -8,21 +8,29 @@
 <!--Fragment for other type events-->
 <div  th:fragment="OtherEvent">
     <div class="eventOverview">
-        <button class="btn btn-light eventOverview" type="button" data-bs-toggle="collapse" th:data-bs-target="'#collapse'+ ${event.eventId}" aria-expanded="false" th:aria-controls="'collapse'+ ${event.eventId}">
-                <span th:text="${event.eventType}"></span>
+
+            <button class="btn btn-light wideButton" type="button" data-bs-toggle="collapse" th:data-bs-target="'#collapse'+ ${event.eventId}" aria-expanded="false" th:aria-controls="'collapse'+ ${event.eventId}">
+                <span class="typeLabel" th:text="${event.eventType}"></span>
                 <span class="eventTitle" th:text="${event.title}"></span>
+
+            </button>
             <div class="buttonHolder">
-                <div class="editButton"
-                     th:attr="data-eventdata=${event.eventType} + '!' + ${event.title} + '!' + ${event.startDate} + '!' + ${event.endDate} + '!' + ${event.notes}">
-                    <img th:src="@{/images/pen-solid.svg}" class="eventButtons" />
-                </div>
-                <div class="deleteButton"
-                     th:attr="data-eventdata=${event.title}"
-                     th:data-parent-id="|${event.title}${event.eventId}|">
-                    <img th:src="@{/images/trash-can-regular.svg}" class="eventButtons" />
-                </div>
+                <img
+                        th:src="@{/images/pen-solid.svg}"
+                        th:attr="data-eventData=${event.eventType} + '!' + ${event.title} + '!' + ${event.startDate} + '!' + ${event.endDate} + '!' + ${event.notes}"
+                        class="editButton"
+                        data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                />
+                <img
+                        th:src="@{/images/trash-can-regular.svg}"
+                        th:data-eventData="${event}"
+                        th:data-parentid="|${event.title}${event.eventId}|"
+                        class="deleteButton"
+                />
+
             </div>
-        </button>
+
+
     </div>
 
     <div class="collapse" th:id="'collapse'+ ${event.eventId}">
@@ -38,11 +46,27 @@
 <!--Fragment for Job type events-->
 <div  th:fragment="JobEvent">
     <div class="eventOverview">
-        <button class="btn btn-light eventOverview" type="button" data-bs-toggle="collapse" th:data-bs-target="'#collapse'+ ${event.eventId}" aria-expanded="false" th:aria-controls="'collapse'+ ${event.eventId}">
-                <span type="text" th:text="${event.eventType}"></span>
+        <button class="btn btn-light wideButton" type="button" data-bs-toggle="collapse" th:data-bs-target="'#collapse'+ ${event.eventId}" aria-expanded="false" th:aria-controls="'collapse'+ ${event.eventId}">
+                <span class="typeLabel" th:text="${event.eventType}"></span>
                 <span class="eventTitle" th:text="${event.title}"></span>
 
         </button>
+        <div class="buttonHolder">
+
+            <img
+                    th:src="@{/images/pen-solid.svg}"
+                    th:attr="data-eventData=${event.eventType} + '!' + ${event.title} + '!' + ${event.startDate} + '!' + ${event.endDate} + '!' + ${event.notes} + '!' + ${event.company} + '!' + ${event.salary} + '!' + ${event.hourlyPay}"
+                    class="editButton"
+                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+            />
+            <img
+                    th:src="@{/images/trash-can-regular.svg}"
+                    th:data-eventData="${event}"
+                    th:data-parentid="|${event.title}${event.eventId}|"
+                    class="deleteButton"
+            />
+
+        </div>
     </div>
 
     <div class="collapse" th:id="'collapse'+ ${event.eventId}">
@@ -61,12 +85,24 @@
 <!--Fragment for Pet type events-->
 <div  th:fragment="PetEvent">
     <div class="eventOverview">
-        <button class="btn btn-light eventOverview" type="button" data-bs-toggle="collapse" th:data-bs-target="'#collapse'+ ${event.eventId}" aria-expanded="false" th:aria-controls="'collapse'+ ${event.eventId}">
-                <span type="text" th:text="${event.eventType}"></span>
+        <button class="btn btn-light wideButton" type="button" data-bs-toggle="collapse" th:data-bs-target="'#collapse'+ ${event.eventId}" aria-expanded="false" th:aria-controls="'collapse'+ ${event.eventId}">
+                <span class="typeLabel" type="text" th:text="${event.eventType}"></span>
                 <span class="eventTitle" th:text="${event.title}"></span>
-
-
         </button>
+        <div class="buttonHolder">
+            <img
+                    th:src="@{/images/pen-solid.svg}"
+                    th:attr="data-eventData=${event.eventType} + '!' + ${event.title} + '!' + ${event.startDate} + '!' + ${event.endDate} + '!' + ${event.notes} + '!' + ${event.petType}"
+                    class="editButton"
+                    data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+            />
+            <img
+                    th:src="@{/images/trash-can-regular.svg}"
+                    th:data-eventData="${event}"
+                    th:data-parentid="|${event.title}${event.eventId}|"
+                    class="deleteButton"
+            />
+        </div>
     </div>
 
     <div class="collapse" th:id="'collapse'+ ${event.eventId}">
