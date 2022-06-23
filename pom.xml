@@ -92,6 +92,11 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>fontawesome-iconset</artifactId>
+			<version>4.2.0-b2</version>
+		</dependency>
 	</dependencies>
 
 	<build>

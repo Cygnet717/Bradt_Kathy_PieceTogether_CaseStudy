@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div  th:fragment="OtherEvent">
+    <div class="eventOverview">
+        <button class="btn btn-light" type="button" data-bs-toggle="collapse" th:data-bs-target="'#collapse'+ ${event.eventId}" aria-expanded="false" th:aria-controls="'collapse'+ ${event.eventId}">
+            <span type="text" th:text="${event.eventType}"></span>
+            <span th:text="${event.title}"></span>
+        </button>
+    </div>
+
+    <div class="collapse" th:id="'collapse'+ ${event.eventId}">
+        <div class="card card-body">
+            <span th:text="'Start Date: '+${event.startDate}"></span><span th:text="'End Date: '+${event.endDate}"></span><span th:text="'Notes: '+${event.notes}"></span>
+        </div>
+    </div>
+    <div class="buttonHolder">
+        <div class="deleteButton" th:data-eventdata="${event.title}" th:data-parent-id="|${event.title}${event.eventId}|">
+            <img th:src="@{/images/trash-can-regular.svg}" class="eventButtons" />
+        </div>
+        <div class="editButton"
+             th:data-eventData="${event.eventType} + '!' + ${event.title} + '!' + ${event.startDate} + '!' + ${event.endDate} + '!' + ${event.notes}">
+            <img th:src="@{/images/pen-solid.svg}" class="eventButtons" />
+        </div>
+    </div>
+</div>
+
+
+<div  th:fragment="JobEvent">
+    <div class="eventOverview">
+        <button class="btn btn-light" type="button" data-bs-toggle="collapse" th:data-bs-target="'#collapse'+ ${event.eventId}" aria-expanded="false" th:aria-controls="'collapse'+ ${event.eventId}">
+            <span type="text" th:text="${event.eventType}"></span>
+            <span th:text="${event.title}"></span>
+        </button>
+    </div>
+
+    <div class="collapse" th:id="'collapse'+ ${event.eventId}">
+        <div class="card card-body">
+            <div th:if="${event.salary} == null" th:text="'Hourly Pay: ' + ${event.hourlyPay}"></div>
+            <div th:if="${event.hourlyPay} == null" th:text="'Salary: ' + ${event.salary}"></div>
+            <span th:text="'Start Date: '+${event.startDate}"></span><span th:text="'End Date: '+${event.endDate}"></span><span th:text="'Notes: '+${event.notes}"></span>
+        </div>
+    </div>
+    <div class="buttonHolder">
+        <div class="deleteButton" th:data-eventdata="${event}" th:data-parentid="|${event.title}${event.eventId}|">
+            <img th:src="@{/images/trash-can-regular.svg}" class="eventButtons" />
+        </div>
+        <div class="editButton"
+             th:data-eventData="${event.eventType} + '!' + ${event.title} + '!' + ${event.startDate} + '!' + ${event.endDate} + '!' + ${event.notes}">
+            <img th:src="@{/images/pen-solid.svg}" class="eventButtons" />
+        </div>
+    </div>
+</div>
+
+
+<div  th:fragment="PetEvent">
+    <div class="eventOverview">
+        <button class="btn btn-light" type="button" data-bs-toggle="collapse" th:data-bs-target="'#collapse'+ ${event.eventId}" aria-expanded="false" th:aria-controls="'collapse'+ ${event.eventId}">
+            <span type="text" th:text="${event.eventType}"></span>
+            <span th:text="${event.title}"></span>
+        </button>
+    </div>
+
+    <div class="collapse" th:id="'collapse'+ ${event.eventId}">
+        <div class="card card-body">
+            <div th:text="${event.petType}"></div>
+            <span th:text="'Start Date: '+${event.startDate}"></span><span th:text="'End Date: '+${event.endDate}"></span><span th:text="'Notes: '+${event.notes}"></span>
+        </div>
+    </div>
+    <div class="buttonHolder">
+        <div class="deleteButton" th:data-eventdata="${event}" th:data-parentid="|${event.title}${event.eventId}|">
+            <img th:src="@{/images/trash-can-regular.svg}" class="eventButtons" />
+        </div>
+        <div class="editButton"
+             th:data-eventData="${event.eventType} + '!' + ${event.title} + '!' + ${event.startDate} + '!' + ${event.endDate} + '!' + ${event.notes}">
+            <img th:src="@{/images/pen-solid.svg}" class="eventButtons" />
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

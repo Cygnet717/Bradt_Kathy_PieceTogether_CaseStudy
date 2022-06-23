@@ -44,7 +44,7 @@ public class UserController {
 
     @GetMapping("/user/category")
     public ModelAndView getOtherPage(Principal principal, @RequestParam String type){
-        System.out.println(type);
+
         ModelAndView modelAndView = new ModelAndView();
         String userEmail = principal.getName();
         User currUser = userService.findUserByEmail(userEmail);
