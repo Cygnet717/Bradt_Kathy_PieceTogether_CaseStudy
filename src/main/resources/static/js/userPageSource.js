@@ -3,9 +3,10 @@ console.log("connected to user page source.js")
 
 const extraInputs = $("#extraInputs")
 
-$('#selectEventType').change(() => {
+const adjustModalForm = (action) => {
     let selectedVal = $('#selectEventType').val()
-    $('#modalHeader').text(`Add ${selectedVal} Event`)
+
+    $('#modalHeader').text(`${action} ${selectedVal} Event`)
 
     if(selectedVal === 'Job'){
         $('#newEventForm').attr("action", "/event/jobs")
@@ -47,8 +48,11 @@ $('#selectEventType').change(() => {
         $('#newEventForm').attr("action", "/event/other")
         extraInputs.empty()
     }
+    $("#newEventForm").attr("method", "post")
+}
 
-})
+$('#selectEventType').change(adjustModalForm("Add"))
+
 
 
 
@@ -75,6 +79,39 @@ $(".editButton").click((event) => {
     let arrayData = event.target.dataset.eventdata.split('!')
     console.log(arrayData)
     // open model and populate with data
+    let type = arrayData[0]
+    let eventId = arrayData[1]
+    let title = arrayData[2]
+    let startDate = arrayData[3]
+    let endDate = arrayData[4]
+    let notes = arrayData[5]
+    let petType, company, salary, hourlyPay
 
+    $("#selectEventType").val(type)
+    adjustModalForm("Edit")
+    $("#newEventForm").attr("method", "put")
+
+
+    if(type === "Pet"){
+        petType = arrayData[6]
+        $("#newEventForm").attr("action", `/event/Pets?id=${eventId}`)
+        $("#petType").val(petType)
+    }
+    if(type === "Job"){
+        company = arrayData[6]
+        salary = arrayData[7]
+        hourlyPay = arrayData[8]
+        $("#company").val(company)
+        $("#hourlyPay").val(hourlyPay)
+        $("#Salary").val(salary)
+        $("#newEventForm").attr("action", `/event/Jobs?id=${eventId}`)
+    } else {
+        $("#newEventForm").attr("action", `/event/Other?id=${eventId}`)
+    }
+    $("#eventId").val(eventId)
+    $("#title").val(title)
+    $("#startDate").val(startDate)
+    $("#endDate").val(endDate)
+    $("#notes").val(notes)
 
 })

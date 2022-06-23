@@ -6,6 +6,7 @@ import com.kathybradt.piecetogether.Service.PetsService;
 import com.kathybradt.piecetogether.Service.UserService;
 import com.kathybradt.piecetogether.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 import java.security.Principal;
@@ -42,6 +43,17 @@ public class EventController {
         User currUser = userService.findUserByEmail(principal.getName());
         event.setUser(currUser);
         petsService.save(event);
+        return new RedirectView("/user");
+    }
+
+    @GetMapping("/event/Other")
+    public RedirectView editOtherEvent(@ModelAttribute Other event, Principal principal){
+//        System.out.println(event.getUser());
+        User currUser = userService.findUserByEmail(principal.getName());
+        event.setUser(currUser);
+
+        otherService.save(event);
+
         return new RedirectView("/user");
     }
 

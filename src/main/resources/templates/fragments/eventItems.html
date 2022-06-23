@@ -17,7 +17,7 @@
             <div class="buttonHolder">
                 <img
                         th:src="@{/images/pen-solid.svg}"
-                        th:attr="data-eventData=${event.eventType} + '!' + ${event.title} + '!' + ${event.startDate} + '!' + ${event.endDate} + '!' + ${event.notes}"
+                        th:attr="data-eventData=${event.eventType} + '!' + ${event.eventId} + '!' + ${event.title} + '!' + ${event.startDate} + '!' + ${event.endDate} + '!' + ${event.notes}"
                         class="editButton"
                         data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                 />
@@ -55,7 +55,7 @@
 
             <img
                     th:src="@{/images/pen-solid.svg}"
-                    th:attr="data-eventData=${event.eventType} + '!' + ${event.title} + '!' + ${event.startDate} + '!' + ${event.endDate} + '!' + ${event.notes} + '!' + ${event.company} + '!' + ${event.salary} + '!' + ${event.hourlyPay}"
+                    th:attr="data-eventData=${event.eventType} + '!' + ${event.eventId} + '!'  + ${event.title} + '!' + ${event.startDate} + '!' + ${event.endDate} + '!' + ${event.notes} + '!' + ${event.company} + '!' + ${event.salary} + '!' + ${event.hourlyPay}"
                     class="editButton"
                     data-bs-toggle="modal" data-bs-target="#staticBackdrop"
             />
@@ -92,7 +92,7 @@
         <div class="buttonHolder">
             <img
                     th:src="@{/images/pen-solid.svg}"
-                    th:attr="data-eventData=${event.eventType} + '!' + ${event.title} + '!' + ${event.startDate} + '!' + ${event.endDate} + '!' + ${event.notes} + '!' + ${event.petType}"
+                    th:attr="data-eventData=${event.eventType} + '!' + ${event.eventId} + '!'  + ${event.title} + '!' + ${event.startDate} + '!' + ${event.endDate} + '!' + ${event.notes} + '!' + ${event.petType}"
                     class="editButton"
                     data-bs-toggle="modal" data-bs-target="#staticBackdrop"
             />

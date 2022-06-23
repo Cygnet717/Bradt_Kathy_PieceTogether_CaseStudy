@@ -67,7 +67,7 @@
     Add New Event
 </button>
 
-<!-- Modal -->
+<!-- Add Event Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -110,7 +110,10 @@
                         <textarea name="notes" class="form-control" placeholder="Notes about event" id="notes"></textarea>
                         <label for="notes">Comments</label>
                     </div>
-
+                    <div class="form-floating">
+                        <input type="number" name="eventId" class="form-control"  id="eventId"></input>
+                        <label for="eventId">id</label>
+                    </div>
                     <div id="extraInputs">
 
                     </div>
