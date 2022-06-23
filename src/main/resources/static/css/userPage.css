@@ -22,21 +22,48 @@ h3 {
   text-align: center;
 }
 
-.eventButtons{
-  height: 30px;
-
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
 .eventOverview{
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .buttonHolder{
   display: flex;
 }
 
+.eventButtons{
+  height: 20px;
+}
+
 .editButton, .deleteButton{
   padding: 5px;
+  border: 2px solid red;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.editButton{
+  border: 2px solid forestgreen;
+}
+
+.eventDetailsBox{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.eventPiece{
+  width:fit-content;
+  padding: 5px;
+}
+
+.eventTitle{
+  font-weight: bolder;
+}
+
+.reverseOrder{
+  display: flex;
+  flex-direction: column-reverse;
 }

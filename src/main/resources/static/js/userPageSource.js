@@ -53,11 +53,13 @@ $('#selectEventType').change(() => {
 
 
 $(".deleteButton").on("click", (event) => {
-    console.log($(".deleteButton").attr('data-eventdata'))
+    console.log($(this).data())
+    //console.log($(this).attr())
+    console.log(event.target.getAttribute("data-eventdata"))
     console.log(event.target.dataset.eventdata)
     // let typeAndId = event.target.dataset.eventdata
     // let splitString = typeAndId.split(' ')
-
+    //
     // let id = parseInt(splitString[1])
     //
     // fetch(`/event?eventType=${splitString[0]}&id=${id}`, {method: 'DELETE'})
@@ -71,11 +73,21 @@ $(".deleteButton").on("click", (event) => {
     // $(`#${parentId}`).remove()
 })
 
-$(".editButton").on("click", (event) => {
-    //open model and populate with data
+$(".editButton").click((event) => {
+    console.log($(this).data())
+    // open model and populate with data
     // $("#staticBackdrop")
     //     .addClass("show")
     //     .attr("role", "dialog")
     //     .attr("style", "display: block")
     console.log(event.target.dataset.eventData)
 })
+
+// function deleteClicked(){
+//     console.log($(this).data())
+// }
+//
+// function editClicked(){
+//     // console.log(type)
+//     console.log($(this).data())
+// }
