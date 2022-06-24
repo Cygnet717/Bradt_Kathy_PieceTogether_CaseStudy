@@ -8,11 +8,9 @@ import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +25,7 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
-    @GetMapping("/user")
+    @GetMapping("/user") //get dashboard (main user page)
     public ModelAndView getUserPage(Principal principal){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("userPage");
@@ -42,7 +40,7 @@ public class UserController {
         return modelAndView;
     }
 
-    @GetMapping("/user/category")
+    @GetMapping("/user/category") //get the category page depending on which category is selected
     public ModelAndView getOtherPage(Principal principal, @RequestParam String type){
 
         ModelAndView modelAndView = new ModelAndView();
@@ -81,6 +79,23 @@ public class UserController {
         }
 
         return modelAndView;
+    }
+
+    @GetMapping("/user/settings") //get the settings page
+    public ModelAndView getSettingsPage(Principal principal){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("settings");
+        String userEmail = principal.getName();
+        User currUser = userService.findUserByEmail(userEmail);
+        modelAndView.addObject("userCurrent", currUser);
+
+        return modelAndView;
+    }
+
+    @PostMapping("/user/update") //Updating user information
+    public RedirectView editUser(@RequestParam Long userId, @RequestParam String firstName, @RequestParam String lastName, @RequestParam String email){
+        userService.updateUser(userId, firstName, lastName, email);
+        return new RedirectView("/user/settings");
     }
 
 }

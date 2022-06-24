@@ -66,9 +66,6 @@ public class NavigationController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/bulkAdd")
-    public String bulkAddPage(){
-        return "bulkAdd.html";
-    }
+
 
 }

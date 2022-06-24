@@ -27,14 +27,6 @@ public class UserService implements UserDAO{
         return userRepository.findByEmail(email);
     }
 
-
-
-    public ArrayList<Jobs> findJobsEvents(String email){ return userRepository.findJobsEvents(email);}
-
-    public ArrayList<Other> findOtherEvents(String email){ return userRepository.findOtherEvents(email);}
-
-    public ArrayList<Pets> findPetsEvents(String email){ return userRepository.findPetsEvents(email);}
-
     public HashMap<Integer, List<Event>> findSortAllEvents(User currUser) {
 
         List<Jobs> allUserJobs = currUser.getJobsList();
@@ -63,10 +55,6 @@ public class UserService implements UserDAO{
         return userEventsCollectedByYear;
     }
 
-    public User findUserByUserName(String firstName) {
-        return userRepository.findByFirstName(firstName);
-    }
-
     @Override
     public Optional<User> getUser(Long id) {
         return userRepository.findById(id);
@@ -79,6 +67,12 @@ public class UserService implements UserDAO{
         return userRepository.save(user);
     }
 
-
+    public void updateUser(Long userId, String firstName, String lastName, String email){
+        User currUser = userRepository.getById(userId);
+        currUser.setFirstName(firstName);
+        currUser.setLastName(lastName);
+        currUser.setEmail(email);
+        userRepository.save(currUser);
+    }
 
 }

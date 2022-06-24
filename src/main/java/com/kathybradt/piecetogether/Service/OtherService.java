@@ -17,6 +17,7 @@ public class OtherService {
 
 
     public Other get(Long id){return otherRepository.getReferenceById(id);}
+
     public Other save(Other event) {
         return otherRepository.save(event);
     }

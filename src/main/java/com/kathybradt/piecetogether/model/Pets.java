@@ -16,7 +16,7 @@ public class Pets extends Event implements Serializable {
     private Long eventId;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", referencedColumnName = "Id", nullable = false)
     private User user;
     private String title;
     private String petType;
