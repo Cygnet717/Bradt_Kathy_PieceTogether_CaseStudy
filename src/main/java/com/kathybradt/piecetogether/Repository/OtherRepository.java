@@ -2,7 +2,6 @@ package com.kathybradt.piecetogether.Repository;
 
 import com.kathybradt.piecetogether.model.Other;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository

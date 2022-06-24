@@ -48,7 +48,6 @@ public class EventController {
 
     @GetMapping("/event/Other")
     public RedirectView editOtherEvent(@ModelAttribute Other event, Principal principal){
-//        System.out.println(event.getUser());
         User currUser = userService.findUserByEmail(principal.getName());
         event.setUser(currUser);
 
