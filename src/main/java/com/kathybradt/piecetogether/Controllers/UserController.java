@@ -23,7 +23,7 @@ import java.util.List;
 @Controller
 @RequestMapping
 public class UserController {
-
+    @Autowired
     private UserService userService;
     @GetMapping("/user") //get dashboard (main user page)
     public ModelAndView getUserPage(Principal principal){

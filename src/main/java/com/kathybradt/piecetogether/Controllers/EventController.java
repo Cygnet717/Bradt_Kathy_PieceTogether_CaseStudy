@@ -15,9 +15,13 @@ import java.security.Principal;
 @RestController
 public class EventController {
 
+    @Autowired
     OtherService otherService;
+    @Autowired
     PetsService petsService;
+    @Autowired
     JobsService jobsService;
+    @Autowired
     UserService userService;
 
     @PostMapping("/event/other")  //add new other type event to database

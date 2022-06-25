@@ -32,7 +32,7 @@ public class NavigationController {
     UserService userService;
 
     @GetMapping("/login")  //Show login page
-    public String login(){
+    public String login(Model model){
         return "loginPage";
     }
 
