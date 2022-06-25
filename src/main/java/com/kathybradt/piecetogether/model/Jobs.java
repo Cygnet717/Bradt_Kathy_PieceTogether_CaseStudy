@@ -29,6 +29,7 @@ public class Jobs extends Event implements Serializable{
     public Jobs() {
     }
 
+    //Constructor for job with hourly pay
     public Jobs(String title, String notes, Date startDate, Date endDate, String eventType, User user, String company, Double hourlyPay) {
         super(title, notes, startDate, endDate, eventType);
         this.user = user;
@@ -36,6 +37,7 @@ public class Jobs extends Event implements Serializable{
         this.hourlyPay = hourlyPay;
     }
 
+    //Constructor for job with salary
     public Jobs(String title, String notes, Date startDate, Date endDate, String eventType, User user, String company, Integer salary) {
         super(title, notes, startDate, endDate, eventType);
         this.user = user;

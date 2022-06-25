@@ -27,11 +27,13 @@ public class Other extends Event implements Serializable{
     public Other() {
     }
 
+    //Constructor with no end date
     public Other(String title, String notes, Date startDate, String eventType, User user) {
         super(title, notes, startDate, eventType);
         this.user = user;
     }
 
+    //Constructor with start and end date
     public Other(String title, String notes, Date startDate, Date endDate, String eventType, User user) {
         super(title, notes, startDate, endDate, eventType);
         this.user = user;

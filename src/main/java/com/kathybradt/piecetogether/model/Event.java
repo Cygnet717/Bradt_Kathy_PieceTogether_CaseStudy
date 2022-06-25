@@ -12,9 +12,9 @@ public class Event {
     public String eventType;
 
     public Event() {
-
     }
 
+    //Constructor for event with start and end date
     public Event(String title, String notes, Date startDate, Date endDate, String eventType) {
         this.title = title;
         this.notes = notes;
@@ -23,6 +23,7 @@ public class Event {
         this.eventType = eventType;
     }
 
+    //Constructor for event with no end date
     public Event(String title, String notes, Date startDate, String eventType) {
         this.title = title;
         this.notes = notes;

@@ -34,8 +34,6 @@ public class User {
     private List<Other> OtherList;
 
     public User() {
-
-
     }
 
     public User(String firstName, String lastName, String email, String password) {
@@ -44,8 +42,6 @@ public class User {
         this.email = email;
         this.password = password;
     }
-
-
 
     public List<Jobs> getJobsList() {
         return JobsList;

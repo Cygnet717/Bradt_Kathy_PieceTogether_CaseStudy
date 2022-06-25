@@ -18,7 +18,7 @@ import java.io.UnsupportedEncodingException;
 public class LoggingFilter extends OncePerRequestFilter {
     private static final Logger logger = LoggerFactory.getLogger(LoggingFilter.class);
 
-    @Override
+    @Override  //logging to console
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
         ContentCachingRequestWrapper contentCachingRequestWrapper = new ContentCachingRequestWrapper(request);

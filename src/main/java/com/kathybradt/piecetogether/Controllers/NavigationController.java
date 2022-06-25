@@ -31,12 +31,12 @@ public class NavigationController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/login")
-    public String login(Model model){
+    @GetMapping("/login")  //Show login page
+    public String login(){
         return "loginPage";
     }
 
-    @RequestMapping(value="/registration", method = RequestMethod.GET)
+    @RequestMapping(value="/registration", method = RequestMethod.GET)  //show registration page
     public ModelAndView registration(){
         ModelAndView modelAndView = new ModelAndView();
         User user = new User();
@@ -45,7 +45,7 @@ public class NavigationController {
         return modelAndView;
     }
 
-    @RequestMapping(value="/registration", method = RequestMethod.POST)
+    @RequestMapping(value="/registration", method = RequestMethod.POST)  //send new user info to database and send user to login page
     public ModelAndView createNewUser(User user, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
         User userExists = userService.findUserByEmail(user.getEmail());

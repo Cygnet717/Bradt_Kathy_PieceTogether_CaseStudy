@@ -15,12 +15,15 @@ public class JobsService {
         this.jobsRepository = jobsRepository;
     }
 
+    //Get single job information
     public Jobs get(Long id){return jobsRepository.getReferenceById(id);}
 
+    //Save new job to database
     public Jobs save(Jobs event){
         return jobsRepository.save(event);
     }
 
+    //Delete job from database
     public void delete(Jobs jobsEvent){
         jobsRepository.delete(jobsEvent);
     }

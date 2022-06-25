@@ -90,14 +90,16 @@ $(".editButton").click((event) => {
     $("#selectEventType").val(type)
     adjustModalForm("Edit")
     $("#newEventForm").attr("method", "put")
-
-
+    $("#newEventForm").attr("action", `/event/Other?id=${eventId}`)
+console.log(`type == ${type}`)
     if(type === "Pet"){
+        console.log("edit pet")
         petType = arrayData[6]
         $("#newEventForm").attr("action", `/event/Pets?id=${eventId}`)
         $("#petType").val(petType)
     }
     if(type === "Job"){
+        console.log("edit job")
         company = arrayData[6]
         salary = arrayData[7]
         hourlyPay = arrayData[8]
@@ -105,8 +107,6 @@ $(".editButton").click((event) => {
         $("#hourlyPay").val(hourlyPay)
         $("#Salary").val(salary)
         $("#newEventForm").attr("action", `/event/Jobs?id=${eventId}`)
-    } else {
-        $("#newEventForm").attr("action", `/event/Other?id=${eventId}`)
     }
     $("#eventId").val(eventId)
     $("#title").val(title)

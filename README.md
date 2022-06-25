@@ -1,47 +1,54 @@
-# Technical Requirements:
+# Capstone Project: Piece Together
 
-Application naming format for canvas submission: LastName_FirstName_ProjectName_CaseStudy
-Use Tomcat as the webserver
-## Views:
-- Use an external CSS stylesheet (internal styling may be used along with frameworks such as Bootstrap, but you must still include and utilize a custom CSS external file)
-- Your application should include six different views/pages (wireframes of the pages should be submitted with the project)
-- Use HTML to layout the pages and Thymeleaf to make the pages dynamic (frameworks such as Angular or React can be used as well but will not be covered in the course. The application’s presentation must meet the general view requirements.)
-- Use CSS to style the web pages
-- Use at least one JavaScript script linked from an external script file (internal scripts may be used along with frameworks such a jQuery, but you must still include and utilize a custom JavaScript external file)
-- Include a navigation section that is included across multiple pages
+Created By Kathy Bradt
+
+## Overview
+
+This is an app for those who want to remember things that matter.
+- When did I take the vacation to Ireland?
+- What is the name of the person I bought my boat from?
+- How much did Thomas weigh when he was born?
+- What was my manager's name for the job I had 7 years ago?
+  
+Whether you are just reminiscing or applying to a new job that asks for 7 years of work history, have all your important life events stored in one location for future reference.
+
+
+## User Stories
+
+As a User I want to:  
+- Make a new account **so that** I can use the site
+- Log into my account **so that** I can access my events
+- View all my events sorted by Year **so that** I can easily navigate through my events
+- View only events of a particular type  **so that** all events of the same type at once
+- Add new events to my account **so that** I can keep track of important life events
+- Edit events in my account **so that** I can correct/change the information
+- View my user data **so that** I can confirm the information is correct
+- Edit my user data **so that** I can change my name or email address
+
 ## Models and Database:
-- The configuration file must be set up correctly (e.g., persistence.xml or application.properties)
-- Include at least three custom queries
+
+![Models](/src/main/resources/static/images/models.png)
+
+![ERD](/src/main/resources/static/images/ERD.png)
+
+Originally started with 8 model of events then quickly realized that many of them contained the same data. To me more efficient many of them were condensed into the other model with just the addition of an eventType column.
+
 - Test each custom query created in each repository
 - Test at least one method in each of the service classes
 - Include at least one parameterized test
 - Include at least one test suite
-- Use MariaDB as your DBMS
-- Have at least four models along with tables in a relational database (if four models/tables do not make sense for your application, discuss this with your instructor)
 - Include a schema diagram of the tables
-- Use Jakarta Persistence API (JPA) directly or through Spring Data JPA
-- Include and implement repository and service classes/interfaces
-- Models should be annotated for binding using Spring data binding through Jakarta and/or Hibernate validation
-- Your application should include at least one example of each of the CRUD operations
 - Use JUnit to perform unit tests on the JPA repositories/services
-## Spring
-- Use Spring Boot to implement the project
-- Include at least two ways of creating a managed bean/object
-- Use correct implementations of dependency injection with appropriate use of the @Autowired annotation
-- Include at least one example of session management (Spring Security can be used for session management)
-- Apply exception handling where required by the code
-- Use of Web Services (when applicable)
-- Include sign up and login functionality with encrypted passwords using bcrypt (use of Spring Security will satisfy this requirement)
-- The project package structure should be shown in class where the models, DAO/repositories, services, controllers, exceptions, etc., have a package. Views or templates don’t require a package.
-- Standard Java naming conventions should be followed:
-- Classes should be written in Pascal case
-- Variables, methods, and URLs should be written in camel case
-- Files, including view files, should be written in snake case
-- Packages should be in all lowercase with each word separated by dots (.)
-- Packages should include the name of your project and your name (e.g., “org.johndoe.myprojectname”)
-- Each class should include comments to describe the class and the methods (see Java - JavaDoc discussion topic in Canvas)
-- Have the project hosted on GitHub with a “readme” file documenting user stories and technical challenges along with how they were resolved.
 
+## Technical Challenges
+
+My main exciting challenges with this project stemmed from learning new technologies.  To overcome these obstacles I did a lot of reading documentation, consulting stackoverflow and classmates. 
 
 # Future
-- use other to make custom categories
+
+- Include Admin role and access to usage information
+- Mobile app
+- Include video and picture upload
+- Make it social: add friends, share events, make events public/private
+- Allow user to create new event type
+- 

@@ -45,7 +45,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureUrl("/login?error=true")
                 .usernameParameter("email")
                 .passwordParameter("password")
-//                .loginProcessingUrl("/process_login")
                 .defaultSuccessUrl("/user" , true)
                 .and().logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))

@@ -28,6 +28,7 @@ public class Pets extends Event implements Serializable {
     public Pets() {
     }
 
+    //Constructor for pet event
     public Pets(String title, String notes, Date startDate, Date endDate, String eventType, User user, String petType) {
         super(title, notes, startDate, endDate, eventType);
         this.user = user;

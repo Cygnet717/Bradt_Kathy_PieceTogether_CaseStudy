@@ -13,7 +13,6 @@ import java.util.*;
 public class UserService implements UserDAO{
 
     private UserRepository userRepository;
-
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
@@ -23,10 +22,12 @@ public class UserService implements UserDAO{
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
+    //Get current user object
     public User findUserByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 
+    //Get list of events mapped to the year they occurred
     public HashMap<Integer, List<Event>> findSortAllEvents(User currUser) {
 
         List<Jobs> allUserJobs = currUser.getJobsList();
@@ -60,6 +61,7 @@ public class UserService implements UserDAO{
         return userRepository.findById(id);
     }
 
+    //Save new user information to database
     public User saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(true);
@@ -67,6 +69,7 @@ public class UserService implements UserDAO{
         return userRepository.save(user);
     }
 
+    //Update active user information
     public void updateUser(Long userId, String firstName, String lastName, String email){
         User currUser = userRepository.getById(userId);
         currUser.setFirstName(firstName);
