@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService implements UserDAO{
@@ -37,7 +38,7 @@ public class UserService implements UserDAO{
         allUserEvents.addAll(allUserJobs);
         allUserEvents.addAll(allUserPets);
         allUserEvents.addAll(allUserOther);
-
+        //collect all events into a hash map
         HashMap<Integer, List<Event>> userEventsCollectedByYear = new HashMap<>();
 
         for(Event event: allUserEvents){
@@ -52,8 +53,9 @@ public class UserService implements UserDAO{
                 if(!yearList.contains(event)) yearList.add(event);
             }
         }
-
-        return userEventsCollectedByYear;
+        //Sort map by year
+        LinkedHashMap<Integer, List<Event>> orderedByYear = userEventsCollectedByYear.entrySet().stream().sorted(Map.Entry.<Integer, List<Event>>comparingByKey()).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+        return orderedByYear;
     }
 
     @Override

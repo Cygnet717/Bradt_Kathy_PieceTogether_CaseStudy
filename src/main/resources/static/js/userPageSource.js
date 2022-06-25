@@ -4,11 +4,17 @@ console.log("connected to user page source.js")
 const extraInputs = $("#extraInputs")
 
 const adjustModalForm = (action) => {
+    console.log(action)
     let selectedVal = $('#selectEventType').val()
-
+console.log(selectedVal)
     $('#modalHeader').text(`${action} ${selectedVal} Event`)
-
+    $("#eventId").val()
+    $("#title").val()
+    $("#startDate").val()
+    $("#endDate").val()
+    $("#notes").val()
     if(selectedVal === 'Job'){
+        console.log("hits job")
         $('#newEventForm').attr("action", "/event/jobs")
         extraInputs.empty()
         extraInputs.append('<div class="mb-3">\n' +
@@ -38,6 +44,7 @@ const adjustModalForm = (action) => {
             '                   </div>\n' +
             '               </div>')
     } else if (selectedVal === 'Pet'){
+        console.log("hits pets")
         $('#newEventForm').attr("action", "/event/pets")
         extraInputs.empty()
         extraInputs.append('<div class="mb-3">\n' +
@@ -45,13 +52,14 @@ const adjustModalForm = (action) => {
             '                        <input name="petType" type="text" placeholder="Dog" style="border: 1px solid #589EA6" class="form-control" id="petType" required>\n' +
             '                    </div>')
     } else {
+        console.log("hits other")
         $('#newEventForm').attr("action", "/event/other")
         extraInputs.empty()
     }
     $("#newEventForm").attr("method", "post")
 }
 
-$('#selectEventType').change(adjustModalForm("Add"))
+$('#selectEventType').change(() =>adjustModalForm("Add"))
 
 
 
