@@ -1,0 +1,36 @@
+
+#userControlBox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    background-color: #0B1C26;
+}
+
+#greetingBox{
+    padding: 10px;
+    border-radius: 5px;
+    color: #64b8c2;
+}
+
+h3 {
+    font-family: 'Macondo', cursive;
+}
+
+.categoryHeader{
+    text-align: center;
+}
+
+/*.notesBox{*/
+/*    outline: 1px solid black;*/
+/*}*/
+
+/*.titleBox{*/
+/*    outline: 1px solid red;*/
+/*}*/
+
+/*.dateBox {*/
+/*    outline: 1px solid green;*/
+/*}*/

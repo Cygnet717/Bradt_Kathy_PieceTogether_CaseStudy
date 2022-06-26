@@ -3,33 +3,8 @@
   font-family: 'Dosis', sans-serif;
 }
 
-h3 {
-  font-family: 'Macondo', cursive;
-}
-
-#greetingBox{
-  padding: 10px;
-  border-radius: 5px;
-  color: #64b8c2;
-
-}
-
-#userControlBox{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 30px;
-  margin-bottom: 5px;
-  border-radius: 10px;
-  background-color: #0B1C26;
-}
-
 .captionBackground{
   background: hsla(186, 31%, 50%, 0.5);
-}
-
-.card-title, .card-text{
-  text-align: center;
 }
 
 .eventOverview{
@@ -42,7 +17,6 @@ h3 {
 .wideButton{
   width: 100%;
   display: flex;
-
 }
 
 .buttonHolder{
