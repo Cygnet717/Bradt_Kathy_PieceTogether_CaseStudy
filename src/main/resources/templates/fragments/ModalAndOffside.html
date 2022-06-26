@@ -10,10 +10,14 @@
 <div th:fragment="userControl">
     <div id="userControlBox" class="container">
 
-        <!--button for offcanvas-->
-        <button id="formButton" class="btn btn-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
-            Sorting Options
-        </button>
+        <div class="sortingDiv">
+            <!--button for offcanvas-->
+            <button id="formButton" class="btn btn-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
+                Sorting Options
+            </button>
+            <img id="orderButton" th:src="@{/images/sort.png}" alt="Sort oldest to recent">
+
+        </div>
         <h3 id="greetingBox">Hello <span th:text="${user.firstName}">Name Here</span></h3>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -101,5 +105,6 @@
         </div>
     </div>
 </div>
+<a hidden href="https://www.flaticon.com/free-icons/sort" title="sort icons">Sort icons created by Kiraaaaa6 - Flaticon</a>
 </body>
 </html>

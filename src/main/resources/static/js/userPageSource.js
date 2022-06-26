@@ -1,6 +1,3 @@
-
-console.log("connected to user page source.js")
-
 const extraInputs = $("#extraInputs")
 
 const adjustModalForm = (action) => {

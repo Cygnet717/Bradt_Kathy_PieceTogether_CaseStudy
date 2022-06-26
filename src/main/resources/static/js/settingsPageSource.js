@@ -1,5 +1,3 @@
-console.log('settings js connected')
-
 $("#editUserButton").click(()=>{
     $("#settingsForm").removeAttr("disabled")
     $("#settingsFormButton").removeAttr("hidden")

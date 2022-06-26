@@ -23,14 +23,6 @@ h3 {
     text-align: center;
 }
 
-/*.notesBox{*/
-/*    outline: 1px solid black;*/
-/*}*/
-
-/*.titleBox{*/
-/*    outline: 1px solid red;*/
-/*}*/
-
-/*.dateBox {*/
-/*    outline: 1px solid green;*/
-/*}*/
+#orderButton{
+    margin-left: 20px;
+}
