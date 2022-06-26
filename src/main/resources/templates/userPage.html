@@ -16,11 +16,17 @@
 </head>
 <body>
 <div th:replace="~{fragments/navigation :: navLoggedIn}"></div>
+<img id="background" class="" th:src="@{/images/pexels-pixabay-268819.jpg}" src="/images/pexels-pixabay-268819.jpg" alt="background feathers"/>
 <div id="userControlBox" class="container">
 
-    <h3 id="greetingBox">Hello <span th:text="${user.firstName}">Name Here</span></h3>
-    <button id="formButton" class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
+    <!--button for offcanvas-->
+    <button id="formButton" class="btn btn-info" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" aria-controls="offcanvas">
         Sorting Options
+    </button>
+    <h3 id="greetingBox">Hello <span th:text="${user.firstName}">Name Here</span></h3>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Add New Event
     </button>
 </div>
 
@@ -29,13 +35,13 @@
 
         <div class="accordion-item" th:each="year: ${yearData}" >
             <h2 class="accordion-header" th:id="'heading' + ${year.key}">
-                <button class="accordion-button" type="button" th:text="${year.key}" data-bs-toggle="collapse" th:data-bs-target="'#collapse' + ${year.key}" aria-expanded="false" th:aria-controls="'collapse' + ${year.key}">
-
+                <button class="accordion-button" type="button" th:text="${year.key}"
+                        data-bs-toggle="collapse" th:data-bs-target="'#collapse' + ${year.key}"
+                        aria-expanded="false" th:aria-controls="'collapse' + ${year.key}">
                 </button>
             </h2>
             <div th:id="'collapse' + ${year.key}" class="accordion-collapse collapse " th:aria-labelledby="'heading' + ${year.key}" data-bs-parent="#accordion">
                 <div class="accordion-body">
-
                     <div th:each="event: ${year.value}" th:id="|${event.title}${event.eventId}|">
                         <div th:switch="${event.eventType}"> <!--Different fragments depending on type of event-->
                             <div th:case="'Pet'" >
@@ -48,24 +54,14 @@
                                 <div  th:replace="~{fragments/eventItems :: OtherEvent}"></div>
                             </div>
                         </div>
-
-
                     </div>
-
-                </div>
-
                 </div>
             </div>
         </div>
-
-
     </div>
 </div>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Add New Event
-</button>
+
 
 <!-- Add Event Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -103,7 +99,7 @@
 
                     <div class="mb-3">
                         <label for="endDate" class="form-label">End Date</label>
-                        <input name="endDate" type="date" class="form-control" id="endDate" aria-describedby="dateHelp">
+                        <input name="endDate" type="date" class="form-control" id="endDate" aria-describedby="dateHelp" required>
                     </div>
 
                     <div class="form-floating">
@@ -111,7 +107,7 @@
                         <label for="notes">Comments</label>
                     </div>
                     <div class="form-floating">
-                        <input type="number" name="eventId" class="form-control" hidden id="eventId"></input>
+                        <input type="number" name="eventId" class="form-control" hidden id="eventId">
                         <label for="eventId" hidden>id</label>
                     </div>
                     <div id="extraInputs">

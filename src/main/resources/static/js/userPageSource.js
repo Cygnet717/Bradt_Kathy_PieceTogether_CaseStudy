@@ -4,17 +4,16 @@ console.log("connected to user page source.js")
 const extraInputs = $("#extraInputs")
 
 const adjustModalForm = (action) => {
-    console.log(action)
     let selectedVal = $('#selectEventType').val()
-console.log(selectedVal)
     $('#modalHeader').text(`${action} ${selectedVal} Event`)
+
     $("#eventId").val()
     $("#title").val()
     $("#startDate").val()
     $("#endDate").val()
     $("#notes").val()
+
     if(selectedVal === 'Job'){
-        console.log("hits job")
         $('#newEventForm').attr("action", "/event/jobs")
         extraInputs.empty()
         extraInputs.append('<div class="mb-3">\n' +
@@ -44,7 +43,6 @@ console.log(selectedVal)
             '                   </div>\n' +
             '               </div>')
     } else if (selectedVal === 'Pet'){
-        console.log("hits pets")
         $('#newEventForm').attr("action", "/event/pets")
         extraInputs.empty()
         extraInputs.append('<div class="mb-3">\n' +
@@ -52,7 +50,6 @@ console.log(selectedVal)
             '                        <input name="petType" type="text" placeholder="Dog" style="border: 1px solid #589EA6" class="form-control" id="petType" required>\n' +
             '                    </div>')
     } else {
-        console.log("hits other")
         $('#newEventForm').attr("action", "/event/other")
         extraInputs.empty()
     }
@@ -85,7 +82,6 @@ $(".deleteButton").on("click", (event) => {
 
 $(".editButton").click((event) => {
     let arrayData = event.target.dataset.eventdata.split('!')
-    console.log(arrayData)
     // open model and populate with data
     let type = arrayData[0]
     let eventId = arrayData[1]
@@ -101,13 +97,11 @@ $(".editButton").click((event) => {
     $("#newEventForm").attr("action", `/event/Other?id=${eventId}`)
 console.log(`type == ${type}`)
     if(type === "Pet"){
-        console.log("edit pet")
         petType = arrayData[6]
         $("#newEventForm").attr("action", `/event/Pets?id=${eventId}`)
         $("#petType").val(petType)
     }
     if(type === "Job"){
-        console.log("edit job")
         company = arrayData[6]
         salary = arrayData[7]
         hourlyPay = arrayData[8]
