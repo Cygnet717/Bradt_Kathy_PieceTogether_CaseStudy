@@ -26,17 +26,19 @@ public class UserService implements UserDAO{
     //Get current user object
     public User findUserByEmail(String email) {
         User currUser = userRepository.findByEmail(email);
-        List<Other> otherEvents = currUser.getOtherList();
-        List<Jobs> jobsEvents = currUser.getJobsList();
-        List<Pets> petsEvents = currUser.getPetsList();
+        if(currUser != null) {
+            List<Other> otherEvents = currUser.getOtherList();
+            List<Jobs> jobsEvents = currUser.getJobsList();
+            List<Pets> petsEvents = currUser.getPetsList();
 
-        otherEvents.sort(Comparator.comparing(Other::getDate));
-        jobsEvents.sort(Comparator.comparing(Jobs::getDate));
-        petsEvents.sort(Comparator.comparing(Pets::getDate));
+            otherEvents.sort(Comparator.comparing(Other::getDate));
+            jobsEvents.sort(Comparator.comparing(Jobs::getDate));
+            petsEvents.sort(Comparator.comparing(Pets::getDate));
 
-        currUser.setOtherList(otherEvents);
-        currUser.setJobsList(jobsEvents);
-        currUser.setPetsList(petsEvents);
+            currUser.setOtherList(otherEvents);
+            currUser.setJobsList(jobsEvents);
+            currUser.setPetsList(petsEvents);
+        }
         return currUser;
     }
 

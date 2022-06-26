@@ -47,6 +47,7 @@ public class NavigationController {
 
     @RequestMapping(value="/registration", method = RequestMethod.POST)  //send new user info to database and send user to login page
     public ModelAndView createNewUser(User user, BindingResult bindingResult) {
+        System.out.println("===============================");
         ModelAndView modelAndView = new ModelAndView();
         User userExists = userService.findUserByEmail(user.getEmail());
         if (userExists != null) {
