@@ -2,7 +2,6 @@ package com.kathybradt.piecetogether.model;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.time.LocalDate;
 
 
 import javax.persistence.*;
@@ -20,8 +19,7 @@ public class Pets extends Event implements Serializable {
     private User user;
     private String title;
     private String petType;
-    private Date startDate;
-    private Date endDate;
+    private Date date;
     private String notes;
     private String eventType = "Pet";
 
@@ -29,8 +27,8 @@ public class Pets extends Event implements Serializable {
     }
 
     //Constructor for pet event
-    public Pets(String title, String notes, Date startDate, Date endDate, String eventType, User user, String petType) {
-        super(title, notes, startDate, endDate, eventType);
+    public Pets(String title, String notes, Date date, String eventType, User user, String petType) {
+        super(title, notes, date, eventType);
         this.user = user;
         this.petType = petType;
     }
@@ -83,20 +81,12 @@ public class Pets extends Event implements Serializable {
         this.petType = petType;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setDate(Date startDate) {
+        this.date = startDate;
     }
 
     public String getNotes() {

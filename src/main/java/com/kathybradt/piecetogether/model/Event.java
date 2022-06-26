@@ -7,29 +7,21 @@ import java.sql.Date;
 public class Event {
     public String title;
     public String notes;
-    public Date startDate;
-    public Date endDate;
+    public Date date;
     public String eventType;
 
     public Event() {
     }
 
-    //Constructor for event with start and end date
-    public Event(String title, String notes, Date startDate, Date endDate, String eventType) {
+    //Constructor for event
+    public Event(String title, String notes, Date date, String eventType) {
         this.title = title;
         this.notes = notes;
-        this.startDate = startDate;
-        this.endDate = endDate;
+        this.date = date;
+
         this.eventType = eventType;
     }
 
-    //Constructor for event with no end date
-    public Event(String title, String notes, Date startDate, String eventType) {
-        this.title = title;
-        this.notes = notes;
-        this.startDate = startDate;
-        this.eventType = eventType;
-    }
 
     public String getTitle() {
         return title;
@@ -47,20 +39,12 @@ public class Event {
         this.notes = notes;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public String getEventType() {

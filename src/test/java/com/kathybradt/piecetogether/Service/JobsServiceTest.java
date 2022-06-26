@@ -38,8 +38,7 @@ class JobsServiceTest {
         userRepository.save(testUser);
 
         testJob.setTitle("testTitle");
-        testJob.setStartDate(Date.valueOf("2020-04-04"));
-        testJob.setEndDate(Date.valueOf("2020-04-04"));
+        testJob.setDate(Date.valueOf("2020-04-04"));
         testJob.setNotes("Test notes");
         testJob.setCompany("Test Company");
         testJob.setSalary(666);

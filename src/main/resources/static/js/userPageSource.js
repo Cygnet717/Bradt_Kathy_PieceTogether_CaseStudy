@@ -6,12 +6,11 @@ const extraInputs = $("#extraInputs")
 const adjustModalForm = (action) => {
     let selectedVal = $('#selectEventType').val()
     $('#modalHeader').text(`${action} ${selectedVal} Event`)
-
-    $("#eventId").val()
-    $("#title").val()
-    $("#startDate").val()
-    $("#endDate").val()
-    $("#notes").val()
+    $("#newEventFormButton").text(action)
+    $("#eventId").val('')
+    $("#title").val('')
+    $("#date").val('')
+    $("#notes").val('')
 
     if(selectedVal === 'Job'){
         $('#newEventForm').attr("action", "/event/jobs")
@@ -47,7 +46,7 @@ const adjustModalForm = (action) => {
         extraInputs.empty()
         extraInputs.append('<div class="mb-3">\n' +
             '                        <label for="petType" class="form-label">Pet Type</label>\n' +
-            '                        <input name="petType" type="text" placeholder="Dog" style="border: 1px solid #589EA6" class="form-control" id="petType" required>\n' +
+            '                        <input name="petType" type="text" placeholder="Dog, Cat, Lizard ect." style="border: 1px solid #589EA6" class="form-control" id="petType" required>\n' +
             '                    </div>')
     } else {
         $('#newEventForm').attr("action", "/event/other")
@@ -82,13 +81,13 @@ $(".deleteButton").on("click", (event) => {
 
 $(".editButton").click((event) => {
     let arrayData = event.target.dataset.eventdata.split('!')
+
     // open model and populate with data
     let type = arrayData[0]
     let eventId = arrayData[1]
     let title = arrayData[2]
-    let startDate = arrayData[3]
-    let endDate = arrayData[4]
-    let notes = arrayData[5]
+    let date = arrayData[3]
+    let notes = arrayData[4]
     let petType, company, salary, hourlyPay
 
     $("#selectEventType").val(type)
@@ -97,14 +96,14 @@ $(".editButton").click((event) => {
     $("#newEventForm").attr("action", `/event/Other?id=${eventId}`)
 console.log(`type == ${type}`)
     if(type === "Pet"){
-        petType = arrayData[6]
+        petType = arrayData[5]
         $("#newEventForm").attr("action", `/event/Pets?id=${eventId}`)
         $("#petType").val(petType)
     }
     if(type === "Job"){
-        company = arrayData[6]
-        salary = arrayData[7]
-        hourlyPay = arrayData[8]
+        company = arrayData[5]
+        salary = arrayData[6]
+        hourlyPay = arrayData[7]
         $("#company").val(company)
         $("#hourlyPay").val(hourlyPay)
         $("#Salary").val(salary)
@@ -112,8 +111,7 @@ console.log(`type == ${type}`)
     }
     $("#eventId").val(eventId)
     $("#title").val(title)
-    $("#startDate").val(startDate)
-    $("#endDate").val(endDate)
+    $("#date").val(date)
     $("#notes").val(notes)
 
 })

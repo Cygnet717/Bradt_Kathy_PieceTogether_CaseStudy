@@ -2,7 +2,6 @@ package com.kathybradt.piecetogether.model;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.time.LocalDate;
 
 
 import javax.persistence.*;
@@ -20,24 +19,18 @@ public class Other extends Event implements Serializable{
     private User user;
     private String title;
     private String notes;
-    private Date startDate;
-    private Date endDate;
+    private Date date;
     private String eventType;
 
     public Other() {
     }
 
-    //Constructor with no end date
-    public Other(String title, String notes, Date startDate, String eventType, User user) {
-        super(title, notes, startDate, eventType);
+    //Constructor
+    public Other(String title, String notes, Date date, String eventType, User user) {
+        super(title, notes, date, eventType);
         this.user = user;
     }
 
-    //Constructor with start and end date
-    public Other(String title, String notes, Date startDate, Date endDate, String eventType, User user) {
-        super(title, notes, startDate, endDate, eventType);
-        this.user = user;
-    }
 
     @Override
     public String toString(){
@@ -82,19 +75,11 @@ public class Other extends Event implements Serializable{
         this.notes = notes;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setDate(Date startDate) {
+        this.date = startDate;
     }
 }

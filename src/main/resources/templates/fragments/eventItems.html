@@ -17,7 +17,7 @@
             <div class="buttonHolder">
                 <img
                         th:src="@{/images/pen-solid.svg}"
-                        th:attr="data-eventData=${event.eventType} + '!' + ${event.eventId} + '!' + ${event.title} + '!' + ${event.startDate} + '!' + ${event.endDate} + '!' + ${event.notes}"
+                        th:attr="data-eventData=${event.eventType} + '!' + ${event.eventId} + '!' + ${event.title} + '!' + ${event.date} + '!' + ${event.notes}"
                         class="editButton"
                         data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                 />
@@ -35,8 +35,7 @@
 
     <div class="collapse" th:id="'collapse'+ ${event.eventId}">
         <div class="card card-body eventDetailsBox">
-            <div class="eventPiece" th:text="'Start Date: '+${event.startDate}"></div>
-            <div class="eventPiece" th:text="'End Date: '+${event.endDate}"></div>
+            <div class="eventPiece" th:text="'Date: '+${event.date}"></div>
             <div class="eventPiece" th:text="'Notes: '+${event.notes}"></div>
         </div>
     </div>
@@ -55,7 +54,7 @@
 
             <img
                     th:src="@{/images/pen-solid.svg}"
-                    th:attr="data-eventData=${event.eventType} + '!' + ${event.eventId} + '!'  + ${event.title} + '!' + ${event.startDate} + '!' + ${event.endDate} + '!' + ${event.notes} + '!' + ${event.company} + '!' + ${event.salary} + '!' + ${event.hourlyPay}"
+                    th:attr="data-eventData=${event.eventType} + '!' + ${event.eventId} + '!'  + ${event.title} + '!' + ${event.date} + '!' + ${event.notes} + '!' + ${event.company} + '!' + ${event.salary} + '!' + ${event.hourlyPay}"
                     class="editButton"
                     data-bs-toggle="modal" data-bs-target="#staticBackdrop"
             />
@@ -74,8 +73,7 @@
             <div class="eventPiece" th:text="'Company: ' + ${event.company}"></div>
             <div class="eventPiece" th:if="${event.salary} == null" th:text="'Hourly Pay: ' + ${event.hourlyPay}"></div>
             <div class="eventPiece" th:if="${event.hourlyPay} == null" th:text="'Salary: ' + ${event.salary}"></div>
-            <div class="eventPiece" th:text="'Start Date: '+${event.startDate}"></div>
-            <div class="eventPiece" th:text="'End Date: '+${event.endDate}"></div>
+            <div class="eventPiece" th:text="'Date: '+${event.date}"></div>
             <div class="eventPiece" th:text="'Notes: '+${event.notes}"></div>
         </div>
     </div>
@@ -92,7 +90,7 @@
         <div class="buttonHolder">
             <img
                     th:src="@{/images/pen-solid.svg}"
-                    th:attr="data-eventData=${event.eventType} + '!' + ${event.eventId} + '!'  + ${event.title} + '!' + ${event.startDate} + '!' + ${event.endDate} + '!' + ${event.notes} + '!' + ${event.petType}"
+                    th:attr="data-eventData=${event.eventType} + '!' + ${event.eventId} + '!'  + ${event.title} + '!' + ${event.date} + '!' + ${event.notes} + '!' + ${event.petType}"
                     class="editButton"
                     data-bs-toggle="modal" data-bs-target="#staticBackdrop"
             />
@@ -108,8 +106,7 @@
     <div class="collapse" th:id="'collapse'+ ${event.eventId}">
         <div class="card card-body eventDetailsBox">
             <div th:text="${event.petType}"></div>
-            <div class="eventPiece" th:text="'Start Date: '+${event.startDate}"></div>
-            <div class="eventPiece" th:text="'End Date: '+${event.endDate}"></div>
+            <div class="eventPiece" th:text="'Date: '+${event.date}"></div>
             <div class="eventPiece" th:text="'Notes: '+${event.notes}"></div>
         </div>
     </div>

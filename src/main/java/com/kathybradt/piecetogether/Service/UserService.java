@@ -25,7 +25,19 @@ public class UserService implements UserDAO{
 
     //Get current user object
     public User findUserByEmail(String email) {
-        return userRepository.findByEmail(email);
+        User currUser = userRepository.findByEmail(email);
+        List<Other> otherEvents = currUser.getOtherList();
+        List<Jobs> jobsEvents = currUser.getJobsList();
+        List<Pets> petsEvents = currUser.getPetsList();
+
+        otherEvents.sort(Comparator.comparing(Other::getDate));
+        jobsEvents.sort(Comparator.comparing(Jobs::getDate));
+        petsEvents.sort(Comparator.comparing(Pets::getDate));
+
+        currUser.setOtherList(otherEvents);
+        currUser.setJobsList(jobsEvents);
+        currUser.setPetsList(petsEvents);
+        return currUser;
     }
 
     //Get list of events mapped to the year they occurred
@@ -42,7 +54,7 @@ public class UserService implements UserDAO{
         HashMap<Integer, List<Event>> userEventsCollectedByYear = new HashMap<>();
 
         for(Event event: allUserEvents){
-            Integer currentEventYear = event.getStartDate().toLocalDate().getYear();
+            Integer currentEventYear = event.getDate().toLocalDate().getYear();
             List<Event> yearList = userEventsCollectedByYear.get(currentEventYear);
 
             if(yearList == null){

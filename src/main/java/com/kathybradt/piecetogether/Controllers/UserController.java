@@ -47,6 +47,7 @@ public class UserController {
         String userEmail = principal.getName();
         User currUser = userService.findUserByEmail(userEmail);
 
+
         switch (type){
             case "Other":
                 modelAndView.setViewName("otherEvents");
