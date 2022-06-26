@@ -25,12 +25,12 @@
         <div th:each="event: ${user.petsList}">
             <li class="list-group-item d-flex flex-column">
                 <div class="d-flex justify-content-between">
-                    <div class="dateBox " th:text="${event.date}">Date</div>
+                    <div class="dateBox " th:text="${#dates.monthNameShort(event.date)}+' '+${#dates.day(event.date)}+', '+${#dates.year(event.date)}">Date</div>
                     <div class="titleBox " th:text="${event.title}">title</div>
                     <div class="" th:text="${event.petType}"></div>
                 </div>
 
-                <div class="notesBox" th:if="${event.notes}" th:text="'Notes: '+${event.notes}">notes</div>
+                <div class="notesBox" th:if="${event.notes} != ''" th:text="'Notes: '+${event.notes}">notes</div>
             </li>
         </div>
 

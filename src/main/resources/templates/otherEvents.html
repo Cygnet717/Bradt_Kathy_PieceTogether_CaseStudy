@@ -26,11 +26,11 @@
             <div th:if="${event.eventType} == ${category}">
                 <li class="list-group-item d-flex flex-column">
                     <div class="d-flex ">
-                        <div class="dateBox me-5" th:text="${event.date}">Date</div>
+                        <div class="dateBox me-5" th:text="${#dates.monthNameShort(event.date)}+' '+${#dates.day(event.date)}+', '+${#dates.year(event.date)}">Date</div>
                         <div class="titleBox " th:text="${event.title}">title</div>
                     </div>
 
-                    <div class="notesBox" th:if="${event.notes}" th:text="'Notes: '+${event.notes}">notes</div>
+                    <div class="notesBox" th:if="${event.notes} != ''" th:text="'Notes: '+${event.notes}">notes</div>
                 </li>
             </div>
 
