@@ -2,8 +2,6 @@ package com.kathybradt.piecetogether.model;
 
 import java.sql.Date;
 
-
-
 public class Event {
     public String title;
     public String notes;
