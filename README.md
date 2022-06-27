@@ -32,13 +32,6 @@ As a User I want to:
 
 Originally started with 8 model of events then quickly realized that many of them contained the same data. To me more efficient many of them were condensed into the other model with just the addition of an eventType column.
 
-- Test each custom query created in each repository
-- Test at least one method in each of the service classes
-- Include at least one parameterized test
-- Include at least one test suite
-- Include a schema diagram of the tables
-- Use JUnit to perform unit tests on the JPA repositories/services
-
 ## Technical Challenges
 
 My main exciting challenges with this project stemmed from learning new technologies.  To overcome these obstacles I did a lot of reading documentation, consulting stackoverflow and classmates. 
