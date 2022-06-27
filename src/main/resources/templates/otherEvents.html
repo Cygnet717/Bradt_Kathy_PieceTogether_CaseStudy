@@ -21,22 +21,22 @@
 <div th:replace="~{fragments/ModalAndOffside :: userControl}"></div>
 <div class="container">
 
-    <ul id="eventList" class="list-group list-group-flush reverseOrder">
+    <div id="eventList" class=" reverseOrder">
         <div th:each="event: ${user.otherList}">
             <div th:if="${event.eventType} == ${category}">
-                <li class="list-group-item d-flex flex-column">
-                    <div class="d-flex ">
-                        <div class="dateBox me-5" th:text="${#dates.monthNameShort(event.date)}+' '+${#dates.day(event.date)}+', '+${#dates.year(event.date)}">Date</div>
-                        <div class="titleBox " th:text="${event.title}">title</div>
+                <div class=" d-flex flex-column container indivEventBox">
+                    <div class="d-flex row">
+                        <div class="dateBox col" th:text="${#dates.monthNameShort(event.date)}+' '+${#dates.day(event.date)}+', '+${#dates.year(event.date)}">Date</div>
+                        <div class="titleBox col" th:text="${event.title}">title</div>
                     </div>
 
                     <div class="notesBox" th:if="${event.notes} != ''" th:text="'Notes: '+${event.notes}">notes</div>
-                </li>
+                </div>
             </div>
 
         </div>
 
-    </ul>
+    </div>
 </div>
 <script th:src="@{/js/userPageSource.js}"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
