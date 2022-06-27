@@ -12,7 +12,6 @@ This is an app for those who want to remember things that matter.
   
 Whether you are just reminiscing or applying to a new job that asks for 7 years of work history, have all your important life events stored in one location for future reference.
 
-
 ## User Stories
 
 As a User I want to:  
@@ -44,11 +43,17 @@ Originally started with 8 model of events then quickly realized that many of the
 
 My main exciting challenges with this project stemmed from learning new technologies.  To overcome these obstacles I did a lot of reading documentation, consulting stackoverflow and classmates. 
 
-# Future
+## Future
 
 - Include Admin role and access to usage information
 - Mobile app
 - Include video and picture upload
 - Make it social: add friends, share events, make events public/private
 - Allow user to create new event type
-- 
+
+## How to run locally
+
+1. Clone Repo
+2. Run Sql file buildAndPopulateDB.sql
+3. Run PieceTogether
+4. Visit localhost:8080/

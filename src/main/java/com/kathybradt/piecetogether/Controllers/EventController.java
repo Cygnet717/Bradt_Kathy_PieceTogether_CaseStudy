@@ -81,13 +81,12 @@ public class EventController {
     @DeleteMapping("/event")  //delete event based on type of event
     @ResponseBody
     public void deleteEvent(@RequestParam String eventType, @RequestParam Long id){
-
         switch (eventType){
             case "Job":
                 Jobs jobEvent = jobsService.get(id);
                 jobsService.delete(jobEvent);
                 break;
-            case "Pets":
+            case "Pet":
                 Pets petsEvent = petsService.get(id);
                 petsService.delete(petsEvent);
                 break;
@@ -97,7 +96,7 @@ public class EventController {
 
         }
 
-        new RedirectView("/user");
+       // new RedirectView("/user");
     }
 
 

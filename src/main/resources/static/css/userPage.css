@@ -25,7 +25,7 @@
 
 .editButton, .deleteButton{
   padding: 5px;
-  height: 40px;
+  height: 35px;
   border: 2px solid red;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;

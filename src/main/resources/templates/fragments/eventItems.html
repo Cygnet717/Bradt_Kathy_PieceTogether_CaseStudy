@@ -66,10 +66,10 @@
 
     <div class="collapse" th:id="'collapse'+ ${event.eventId}+${event.eventType}">
         <div class="card card-body eventDetailsBox">
+            <div class="eventPiece" th:text="${#dates.monthNameShort(event.date)}+' '+${#dates.day(event.date)}+', '+${#dates.year(event.date)}"></div>
             <div class="eventPiece" th:text="'Company: ' + ${event.company}"></div>
             <div class="eventPiece" th:if="${event.salary} == null" th:text="'Hourly Pay: ' + ${#numbers.formatCurrency(event.hourlyPay)}"></div>
             <div class="eventPiece" th:if="${event.hourlyPay} == null" th:text="'Salary: $' + ${event.salary}"></div>
-            <div class="eventPiece" th:text="${#dates.monthNameShort(event.date)}+' '+${#dates.day(event.date)}+', '+${#dates.year(event.date)}"></div>
             <div class="eventPiece" th:if="${event.notes} != ''" th:text="'Notes: '+${event.notes}"></div>
         </div>
     </div>
@@ -101,8 +101,8 @@
 
     <div class="collapse" th:id="'collapse'+ ${event.eventId}+${event.eventType}">
         <div class="card card-body eventDetailsBox">
-            <div th:text="${event.petType}"></div>
             <div class="eventPiece" th:text="${#dates.monthNameShort(event.date)}+' '+${#dates.day(event.date)}+', '+${#dates.year(event.date)}"></div>
+            <div th:text="${event.petType}"></div>
             <div class="eventPiece" th:if="${event.notes} != ''" th:text="'Notes: '+${event.notes}"></div>
         </div>
     </div>
